@@ -1,0 +1,13 @@
+
+.hero {
+  background-image:
+    url("../img/bfw.svg"),
+    linear-gradient(to right,
+    rgba(95,75,139,.87) 25%,
+    rgba(101,78,163,.87) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;     
+    background-position: right center;
+    min-height: 80vh;             
+    padding: 64px 0; 
+}

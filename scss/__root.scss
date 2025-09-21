@@ -21,10 +21,6 @@ $ff-text:"Lato";
     }
 }
 
-@import '_base';
-@import '_layout';
-@import '_components';
-
 /* 1. Убираем плавные скроллы */
 @media (prefers-reduced-motion: reduce) {
   html {

@@ -1,3 +1,81 @@
+@charset "UTF-8";
+.hero {
+  background-image: url("../img/bfw.svg"), linear-gradient(to right, rgba(95, 75, 139, 0.87) 25%, rgba(101, 78, 163, 0.87) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+  min-height: 80vh;
+  padding: 64px 0; }
 
+/* 1. Убираем плавные скроллы */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    /* вместо smooth */ } }
+/* 2. Вырубаем анимации и переходы */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto; }
+
+  * {
+    animation: none !important;
+    transition: none !important; }
+
+  .btn {
+    transform: none;
+    box-shadow: none; }
+
+  .slider {
+    animation-play-state: paused !important; }
+
+  .parallax {
+    background-attachment: scroll;
+    transform: none !important; } }
+.visually-hidden {
+  position: absolute !important;
+  inline-size: 1px !important;
+  block-size: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important; }
+
+.visually-hidden-focusable {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden; }
+
+.visually-hidden-focusable:focus,
+.visually-hidden-focusable:focus-visible {
+  position: static;
+  left: auto;
+  top: auto;
+  inline-size: auto;
+  block-size: auto;
+  padding: 0.5em 0.75em;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  outline: 2px solid #000;
+  outline-offset: 2px;
+  z-index: 1000; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #0a84ff;
+  outline-offset: 2px; }
+
+.nav__link:focus-visible {
+  outline: 2px solid #0a84ff;
+  outline-offset: 3px; }
 
 /*# sourceMappingURL=style.css.map */
