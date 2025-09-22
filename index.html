@@ -12,27 +12,29 @@
     </head>
     <body>
         <a href="#main" class="visually-hidden-focusable">Пропустить к содержимому</a> 
-        <section class="hero">
-        <header>
+         <header class="header">
             <a href="/" class="logo">
                 <img class="logo__img" src="img/Grouplogo.png" alt="Blade Agency — на главную">
             </a>
             <nav class="nav" aria-label="Основное меню">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#hero" class="nav__link">главная</a></li>
-                    <li class="nav__item"><a href="#hero" class="nav__link">участники</a></li>
-                    <li class="nav__item"><a href="#hero" class="nav__link">жюри</a></li>
-                    <li class="nav__item"><a href="#hero" class="nav__link">билеты</a></li>
-                    <li class="nav__item"><a href="#hero" class="nav__link">контакты</a></li>
+                    <li class="nav__item"><a href="#hero" class="nav__link--active">главная</a></li>
+                    <li class="nav__item"><a href="#participants" class="nav__link">участники</a></li>
+                    <li class="nav__item"><a href="#jury" class="nav__link">жюри</a></li>
+                    <li class="nav__item"><a href="#tickets" class="nav__link">билеты</a></li>
+                    <li class="nav__item"><a href="#contacts" class="nav__link">контакты</a></li>
                 </ul>
             </nav>
+            <div class="lang">
             <label class="visually-hidden" for="lang">Выбор языка</label>
             <select id="lang" name="language-switch" class="header__language-select">
                             <option value="ru">русский</option>
                             <option value="en">english</option>
                             <option value="de">deutsch</option>
                         </select>
+                        </div>
                 </header>
+        <section class="hero" id="hero">
                 <main id="main">
                     <div class="container">
                         <section class="hero__bnr">
@@ -41,16 +43,52 @@
                             <a href="" class="icon">
                                 <img class="order__tickets" src="img/icon_calendar.png" alt="Календарь"> 
                             </a>
+                            <time datetime="2025-11-18">18 ноября</time>
+                            <time datetime="2025-11-18T12:30">12:30-20:00</time>
                             <a href="" class="icon">
                                 <img class="map" src="img/icon_loaction.png" alt="Локация">
                             </a>
+                            <p>Москва</p>
+                            <p>Лофт-центр "Эдем"</p>
                             <a href="" class="icon">
                                 <img class="gift" src="img/icon_winner.png" alt="Кубок победителя">
                             </a>
+                            <p>Победитель едет на показ Blade в Париж!</p>
                         </section>
+                       <div class="btn__order">
+                        <a href="#" class="btn__order"></a>
+                        </div>
+                        <div class="social__media">
+                            <a href="#"><img class="icon__social" src="img/icon_SM-fb.png" alt="Facebook"></a>
+                            <a href="#"><img class="icon__social" src="img/icon_SM-insta.png" alt="Instagram"></a>
+                            <a href="#"><img  class="icon__social"src="img/icon_SM-twitter.png" alt="Twitter"></a>
+                            </div>
                         </section>
+                         <section id="participants">
+                            <h2>Участники</h2>
+                            <div class="carousel">
+                                <ul class="carousel__inner">
+                                    <li class="carousel__item">
+                                        <img src="img/nuar.png" alt="nuar">
+                                    </li>
+                                    <li class="carousel__item">
+                                        <img src="img/avangard.png" alt="avangard">
+                                    </li>
+                                    <li class="carousel__item">
+                                        <img src="img/eco.png" alt="eco">
+                                    </li>
+                                </ul>
+                            </div>
+                         </section>
+                         <section id="jury">…</section>
+                         <section id="tickets">…</section>
+                         <section id="contacts">…</section>
 
-                    </div>
+
+                       
+
+
+                
 
                 </main>
                 <footer>
