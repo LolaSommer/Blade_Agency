@@ -74,7 +74,12 @@ button:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-image: linear-gradient(to right, rgba(95, 75, 139, 0.87) 25%, rgba(101, 78, 163, 0.87) 100%);
   font-size: 18px; }
+  .header__logo {
+    background: #FFFFFF; }
+    .header__logo__img {
+      border-radius: 160px,260px; }
 
 .nav__list {
   display: flex;
@@ -84,14 +89,30 @@ button:focus-visible {
   gap: clamp(50px, 3vw, 100px);
   text-transform: uppercase; }
 .nav__link {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #FFFFFF; }
 
 .hero {
-  background-image: url("../img/bfw.svg"), linear-gradient(to right, rgba(95, 75, 139, 0.87) 25%, rgba(101, 78, 163, 0.87) 100%);
+  position: relative;
+  background-image: linear-gradient(to right, rgba(95, 75, 139, 0.87) 25%, rgba(101, 78, 163, 0.87) 100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right center;
   min-height: 80vh;
   padding: 64px 0; }
+  .hero__watermark {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    height: 54em;
+    width: 87.5em; }
+  .hero__header {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    font-size: 72px;
+    color: #FFFFFF; }
 
 /*# sourceMappingURL=style.css.map */

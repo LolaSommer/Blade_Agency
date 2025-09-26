@@ -1,9 +1,20 @@
 .header {
-    display:flex;
-    justify-content: space-between;
+   display:flex;
+   justify-content: space-between;
    align-items: center;
+   background-image:linear-gradient(to right,
+    rgba(95,75,139,.87) 25%,
+    rgba(101,78,163,.87) 100%);
    font-size:$fs-body;
    &__media {
+
+   }
+   &__logo{
+    background:$light;
+    &__img {
+    border-radius: 160px,260px;
+    }
+ 
    }
 
 }
@@ -20,28 +31,14 @@
     }
     &__link { 
         text-decoration: none;
+        color:$light;
     }
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .hero {
+  position:relative;
   background-image:
-    url("../img/bfw.svg"),
     linear-gradient(to right,
     rgba(95,75,139,.87) 25%,
     rgba(101,78,163,.87) 100%);
@@ -50,4 +47,20 @@
     background-position: right center;
     min-height: 80vh;             
     padding: 64px 0; 
+    &__watermark{
+        position:absolute;
+        z-index:0;
+        top:0;
+        left:0;
+        height:54em;
+        width:87.5em;
+    }
+    &__header{
+        display: flex;
+        justify-content: center;
+        position:relative;
+        z-index:1;
+        font-size:$fs-h1;
+        color:$light;
+    }
 }
