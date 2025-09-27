@@ -7,19 +7,31 @@
     rgba(101,78,163,.87) 100%);
    font-size:$fs-body;
    &__media {
-
+    flex: 1;
+    color:#F7BF2F;
+    margin-left: 30px;
    }
    &__logo{
+    display:flex;
     background:$light;
-    &__img {
-    border-radius: 160px,260px;
-    }
- 
+    width: 260px;
+    height: 160px;
+    margin-left: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
    }
-
+   &__language-select{
+    display:flex;
+    margin-left: 70px;
+   }
 }
 
 .nav {
+    &__item{
+      
+    }
+    
     &__list {
         display: flex;
         list-style: none;

@@ -76,10 +76,22 @@ button:focus-visible {
   align-items: center;
   background-image: linear-gradient(to right, rgba(95, 75, 139, 0.87) 25%, rgba(101, 78, 163, 0.87) 100%);
   font-size: 18px; }
+  .header__media {
+    flex: 1;
+    color: #F7BF2F;
+    margin-left: 30px; }
   .header__logo {
-    background: #FFFFFF; }
-    .header__logo__img {
-      border-radius: 160px,260px; }
+    display: flex;
+    background: #FFFFFF;
+    width: 260px;
+    height: 160px;
+    margin-left: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center; }
+  .header__language-select {
+    display: flex;
+    margin-left: 70px; }
 
 .nav__list {
   display: flex;
