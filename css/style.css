@@ -91,7 +91,10 @@ button:focus-visible {
     justify-content: center; }
   .header__language-select {
     display: flex;
-    margin-left: 70px; }
+    margin-left: 70px;
+    margin-right: 70px;
+    background-image: linear-gradient(to right, rgba(95, 75, 139, 0.87) 25%, rgba(101, 78, 163, 0.87) 100%);
+    color: #FFFFFF; }
 
 .nav__list {
   display: flex;
@@ -126,5 +129,29 @@ button:focus-visible {
     z-index: 1;
     font-size: 72px;
     color: #FFFFFF; }
+
+.contacts {
+  display: flex;
+  white-space: nowrap; }
+  .contacts__cols {
+    white-space: normal;
+    display: inline-block;
+    width: 48%;
+    vertical-align: top; }
+  .contacts__info {
+    display: flex;
+    gap: 50px; }
+  .contacts__map {
+    max-width: 810px;
+    max-height: 462px; }
+  .contacts__media {
+    display: flex;
+    list-style: none; }
+
+h2 {
+  font-size: 40px; }
+
+h1 {
+  font-size: 72px; }
 
 /*# sourceMappingURL=style.css.map */

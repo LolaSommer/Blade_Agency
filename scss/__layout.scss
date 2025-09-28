@@ -24,6 +24,12 @@
    &__language-select{
     display:flex;
     margin-left: 70px;
+    margin-right:70px;
+      background-image:
+    linear-gradient(to right,
+    rgba(95,75,139,.87) 25%,
+    rgba(101,78,163,.87) 100%);
+    color:$light;
    }
 }
 
@@ -75,4 +81,38 @@
         font-size:$fs-h1;
         color:$light;
     }
+}
+
+.contacts {
+display:flex;
+white-space: nowrap;
+&__cols{
+    white-space: normal;	
+	display: inline-block;
+	width: 48%;
+	vertical-align: top;
+}
+&__info{
+   display: flex;
+   gap:50px;
+    
+   
+}
+&__map {
+    max-width:810px;
+    max-height:462px;
+}
+&__items {
+    
+}
+&__media{
+    display: flex;
+    list-style: none;
+}
+}
+h2 {
+    font-size: $fs-h2;
+}
+h1 {
+    font-size: $fs-h1;
 }
