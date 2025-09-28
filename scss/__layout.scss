@@ -116,3 +116,62 @@ h2 {
 h1 {
     font-size: $fs-h1;
 }
+
+.slider {
+    position:relative;
+    margin:0;
+    padding: 150px;
+
+    &__inner{
+        display:flex;
+        gap:30px;
+        list-style: none;
+        transition: opacity 1s ease-in-out;
+       
+    }
+    &__item{
+        
+        align-items: center;
+    }
+}
+.card {
+ display:flex;
+ background-color: #F4F4F4;
+ width:420px;
+ height: 110px;
+ position:absolute;
+ &__foto{
+    width:64px;
+    height: 58px;
+    padding:10px;
+ }
+ &__social{
+    display: flex;
+    list-style: none;
+    align-items: end;
+ }
+ &__name{
+    display: flex;
+    font-size: $fs-h4;
+ }
+ &__country{
+ font-size: $fs-text;
+ text-transform: uppercase;
+ }
+}
+.participants{
+    &__slider{
+        text-align: left;
+        margin:20px;
+        padding:20px;
+    }
+}
+
+.jury{
+    &__inner{
+        display:flex;
+        gap:30px;
+        list-style: none;
+    }
+   
+}
