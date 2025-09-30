@@ -70,6 +70,15 @@ button:focus-visible {
   outline: 2px solid #0a84ff;
   outline-offset: 3px; }
 
+.container__participants {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px; }
+.container__jury {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0 20px; }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -156,14 +165,14 @@ h1 {
 
 .slider {
   position: relative;
-  margin: 0;
-  padding: 150px; }
+  margin: 0; }
   .slider__inner {
     display: flex;
     gap: 30px;
     list-style: none;
     transition: opacity 1s ease-in-out; }
   .slider__item {
+    position: relative;
     align-items: center; }
 
 .card {
@@ -171,7 +180,14 @@ h1 {
   background-color: #F4F4F4;
   width: 420px;
   height: 110px;
-  position: absolute; }
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 10px 0 0;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px; }
   .card__foto {
     width: 64px;
     height: 58px;
@@ -181,8 +197,10 @@ h1 {
     list-style: none;
     align-items: end; }
   .card__name {
-    display: flex;
-    font-size: 24px; }
+    display: block;
+    font-size: 24px;
+    margin: 0;
+    white-space: normal; }
   .card__country {
     font-size: 14px;
     text-transform: uppercase; }
@@ -196,5 +214,8 @@ h1 {
   display: flex;
   gap: 30px;
   list-style: none; }
+.jury__card-country {
+  font-size: 18px;
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=style.css.map */
