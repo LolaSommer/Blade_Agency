@@ -77,14 +77,18 @@ button:focus-visible {
 .container__jury {
   max-width: 1700px;
   margin: 0 auto;
-  padding: 0 20px; }
+  padding: 20px 20px; }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-image: linear-gradient(to right, rgba(95, 75, 139, 0.87) 25%, rgba(101, 78, 163, 0.87) 100%);
-  font-size: 18px; }
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%; }
   .header__media {
     flex: 1;
     color: #F7BF2F;
@@ -125,8 +129,8 @@ button:focus-visible {
   min-height: 80vh;
   padding: 64px 0; }
   .hero__watermark {
-    position: absolute;
-    z-index: 0;
+    position: relative;
+    z-index: 1;
     top: 0;
     left: 0;
     height: 54em;
@@ -138,6 +142,8 @@ button:focus-visible {
     z-index: 1;
     font-size: 72px;
     color: #FFFFFF; }
+  .hero__svg {
+    width: 936px; }
 
 .contacts {
   display: flex;
@@ -214,8 +220,16 @@ h1 {
   display: flex;
   gap: 30px;
   list-style: none; }
-.jury__card-country {
-  font-size: 18px;
-  text-transform: uppercase; }
+.jury__card {
+  line-height: 20px; }
+  .jury__card-country {
+    font-size: 18px;
+    text-transform: uppercase; }
+  .jury__card-firstname {
+    font-size: 40px; }
+  .jury__card-lastname {
+    font-size: 40px; }
+  .jury__card-text {
+    font-size: 18px; }
 
 /*# sourceMappingURL=style.css.map */
