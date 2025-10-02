@@ -163,6 +163,12 @@ button:focus-visible {
     display: flex;
     list-style: none; }
 
+.tickets {
+  display: flex;
+  white-space: nowrap; }
+  .tickets__header {
+    font-size: 72px; }
+
 h2 {
   font-size: 40px; }
 
@@ -218,18 +224,41 @@ h1 {
 
 .jury__inner {
   display: flex;
-  gap: 30px;
+  gap: 50px;
+  list-style: none;
+  margin: 50px; }
+.jury__social {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   list-style: none; }
 .jury__card {
-  line-height: 20px; }
+  background-color: #F4F4F4;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+  width: 470px;
+  height: 356px;
+  line-height: 20px;
+  position: relative; }
   .jury__card-country {
+    display: flex;
+    justify-content: flex-end;
     font-size: 18px;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    opacity: 32%; }
   .jury__card-firstname {
-    font-size: 40px; }
+    font-size: 40px;
+    font-weight: 700; }
   .jury__card-lastname {
+    font-weight: 700;
     font-size: 40px; }
   .jury__card-text {
-    font-size: 18px; }
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 64%; }
 
 /*# sourceMappingURL=style.css.map */
