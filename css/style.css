@@ -143,7 +143,26 @@ button:focus-visible {
     font-size: 72px;
     color: #FFFFFF; }
   .hero__svg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
     width: 936px; }
+
+.icon {
+  display: flex;
+  justify-content: flex-start;
+  margin: 50px;
+  align-items: center;
+  gap: 50px;
+  color: #FFFFFF;
+  font-size: 18px; }
+  .icon__winner {
+    display: flex; }
+  .icon__location {
+    display: flex; }
+  .icon__tickets {
+    display: flex; }
 
 .contacts {
   display: flex;
@@ -162,12 +181,6 @@ button:focus-visible {
   .contacts__media {
     display: flex;
     list-style: none; }
-
-.tickets {
-  display: flex;
-  white-space: nowrap; }
-  .tickets__header {
-    font-size: 72px; }
 
 h2 {
   font-size: 40px; }
@@ -260,5 +273,21 @@ h1 {
     font-size: 18px;
     font-weight: 400;
     opacity: 64%; }
+
+.tickets__header {
+  font-size: 72px; }
+.tickets__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px; }
+
+.payment__info {
+  flex: 1;
+  max-width: 40%; }
+
+.table {
+  flex: 1;
+  max-width: 55%; }
 
 /*# sourceMappingURL=style.css.map */

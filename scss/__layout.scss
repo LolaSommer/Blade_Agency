@@ -82,6 +82,8 @@
     background-position: right center;
     min-height: 80vh;             
     padding: 64px 0; 
+    
+    
     &__watermark{
         position:relative;
         z-index:1;
@@ -99,11 +101,33 @@
         color:$light;
     }
     &__svg{
-        width:936px;
-        
+        position:absolute;
+        right:0;
+        bottom:0;
+        z-index:1;
+        width:936px;  
     }
 
 }
+.icon {
+    display:flex;
+    justify-content: flex-start;
+    margin:50px;
+    align-items: center;
+    gap:50px;
+    color:$light;
+    font-size: $fs-body;
+    &__winner{
+        display: flex;
+    }
+    &__location{
+        display:flex;
+    }
+    &__tickets{
+        display: flex;
+    }
+}
+
 
 .contacts {
 display:flex;
@@ -132,13 +156,7 @@ white-space: nowrap;
     list-style: none;
 }
 }
-.tickets {
-    display:flex;
-    white-space: nowrap;
-    &__header{
-        font-size: $fs-h1;
-    }
-}
+
 h2 {
     font-size: $fs-h2;
 }
@@ -254,4 +272,25 @@ h1 {
         opacity: 64%;
     }
    }
+}
+.tickets{
+    &__header{
+        font-size: $fs-h1;
+    }
+&__wrapper{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap:30px;
+}
+}
+.payment {
+    &__info{
+        flex:1;
+        max-width:40%;
+    }
+}
+.table{
+    flex:1;
+    max-width: 55%;
 }
