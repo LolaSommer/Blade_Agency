@@ -107,26 +107,38 @@
         z-index:1;
         width:936px;  
     }
+    &__teg{
+        font-size: $fs-h4;
+        color:$multi;
+    }
 
 }
 .icon {
-    display:flex;
-    justify-content: flex-start;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:20px;
     margin:50px;
-    align-items: center;
-    gap:50px;
     color:$light;
     font-size: $fs-body;
+    position:absolute;
+    top:0;
+    
     &__winner{
         display: flex;
+        align-items: center;
     }
     &__location{
         display:flex;
+         align-items: center;
     }
-    &__tickets{
+    &__calender{
         display: flex;
+        align-items: center;
     }
 }
+
+
+
 
 .btn {
   display: flex;
@@ -158,7 +170,7 @@
     svg {
       width: 30px;
       height: 30px;
-      stroke: $dark; // цвет стрелки
+      stroke: $dark; 
     }
   }
 }

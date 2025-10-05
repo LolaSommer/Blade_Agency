@@ -148,21 +148,28 @@ button:focus-visible {
     bottom: 0;
     z-index: 1;
     width: 936px; }
+  .hero__teg {
+    font-size: 24px;
+    color: #F7BF2F; }
 
 .icon {
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   margin: 50px;
-  align-items: center;
-  gap: 50px;
   color: #FFFFFF;
-  font-size: 18px; }
+  font-size: 18px;
+  position: absolute;
+  top: 0; }
   .icon__winner {
-    display: flex; }
+    display: flex;
+    align-items: center; }
   .icon__location {
-    display: flex; }
-  .icon__tickets {
-    display: flex; }
+    display: flex;
+    align-items: center; }
+  .icon__calender {
+    display: flex;
+    align-items: center; }
 
 .btn {
   display: flex;
