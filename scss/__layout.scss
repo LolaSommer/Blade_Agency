@@ -72,7 +72,6 @@
 }
 
 .hero {
-  position:relative;
   background-image:
     linear-gradient(to right,
     rgba(95,75,139,.87) 25%,
@@ -81,38 +80,38 @@
     background-size: cover;     
     background-position: right center;
     min-height: 80vh;             
-    padding: 64px 0; 
-    
-    
-    &__watermark{
-        position:relative;
-        z-index:1;
-        top:0;
-        left:0;
-        height:54em;
-        width:87.5em;
-    }
-    &__header{
-        display: flex;
+    padding: 64px 0;  
+      &__header{
+        display:flex;
         justify-content: center;
-        position:relative;
-        z-index:1;
-        font-size:$fs-h1;
+        font-size: $fs-h1;
         color:$light;
-    }
-    &__svg{
-        position:absolute;
-        right:0;
-        bottom:0;
-        z-index:1;
-        width:936px;  
     }
     &__teg{
         font-size: $fs-h4;
         color:$multi;
     }
+    &__bnr{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    align-items:center;
+    gap:40px;
+}
+&__watermark {
+  position: relative;
+  z-index: 2;
+  
+    
+}
+&__content{
+    
+    }
 
 }
+
+
+
+
 .icon {
     display:grid;
     grid-template-columns: repeat(3,1fr);

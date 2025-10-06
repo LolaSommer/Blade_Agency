@@ -121,36 +121,28 @@ button:focus-visible {
   color: #FFFFFF; }
 
 .hero {
-  position: relative;
   background-image: linear-gradient(to right, rgba(95, 75, 139, 0.87) 25%, rgba(101, 78, 163, 0.87) 100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right center;
   min-height: 80vh;
   padding: 64px 0; }
-  .hero__watermark {
-    position: relative;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    height: 54em;
-    width: 87.5em; }
   .hero__header {
     display: flex;
     justify-content: center;
-    position: relative;
-    z-index: 1;
     font-size: 72px;
     color: #FFFFFF; }
-  .hero__svg {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    width: 936px; }
   .hero__teg {
     font-size: 24px;
     color: #F7BF2F; }
+  .hero__bnr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px; }
+  .hero__watermark {
+    position: relative;
+    z-index: 2; }
 
 .icon {
   display: grid;
