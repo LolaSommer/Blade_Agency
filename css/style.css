@@ -70,12 +70,20 @@ button:focus-visible {
   outline: 2px solid #0a84ff;
   outline-offset: 3px; }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; }
+
 .container__participants {
   max-width: 1500px;
   margin: 0 auto;
   padding: 0 20px; }
 .container__jury {
-  max-width: 1700px;
   margin: 0 auto;
   padding: 20px 20px; }
 
@@ -126,21 +134,41 @@ button:focus-visible {
   background-size: cover;
   background-position: right center;
   min-height: 80vh;
-  padding: 64px 0; }
+  padding: 64px 0;
+  position: relative;
+  z-index: 1; }
   .hero__header {
-    display: flex;
-    justify-content: center;
     font-size: 72px;
-    color: #FFFFFF; }
+    color: #FFFFFF;
+    margin-bottom: 40px;
+    text-align: left; }
+  .hero__content {
+    position: relative;
+    z-index: 2; }
   .hero__teg {
     font-size: 24px;
-    color: #F7BF2F; }
+    color: #F7BF2F;
+    margin-bottom: 20px; }
   .hero__bnr {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 40px; }
+    gap: 40px;
+    position: relative; }
   .hero__watermark {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 54em;
+    width: 87.5em; }
+  .hero__svg {
+    width: 100%;
+    max-width: 936px;
+    height: auto; }
+  .hero__img {
+    display: flex;
+    justify-content: flex-end;
     position: relative;
     z-index: 2; }
 
@@ -151,8 +179,8 @@ button:focus-visible {
   margin: 50px;
   color: #FFFFFF;
   font-size: 18px;
-  position: absolute;
-  top: 0; }
+  position: relative;
+  top: auto; }
   .icon__winner {
     display: flex;
     align-items: center; }
@@ -162,6 +190,10 @@ button:focus-visible {
   .icon__calender {
     display: flex;
     align-items: center; }
+  .icon__winner, .icon__location, .icon__calender {
+    display: flex;
+    align-items: center;
+    gap: 10px; }
 
 .btn {
   display: flex;
@@ -172,7 +204,8 @@ button:focus-visible {
   background: #FFFFFF;
   cursor: pointer;
   text-transform: uppercase;
-  font-size: 18px; }
+  font-size: 18px;
+  margin: 150px; }
   .btn__text {
     flex: 1;
     display: flex;
@@ -190,6 +223,13 @@ button:focus-visible {
       width: 30px;
       height: 30px;
       stroke: #1C1515; }
+
+.social__media {
+  display: flex;
+  opacity: 32%;
+  width: 44px;
+  height: 44px;
+  gap: 20px; }
 
 .contacts {
   display: flex;

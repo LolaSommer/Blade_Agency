@@ -1,3 +1,12 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html,body{
+    max-width: 100%;
+    overflow-x:hidden;
+}
 .container {
   &__participants{
     max-width: 1500px;
@@ -5,7 +14,6 @@
     padding: 0 20px;
   }
   &__jury{
-    max-width: 1700px;
     margin: 0 auto;      
     padding: 20px 20px;
   }
@@ -80,33 +88,50 @@
     background-size: cover;     
     background-position: right center;
     min-height: 80vh;             
-    padding: 64px 0;  
+    padding: 64px 0;
+    position:relative;
+    z-index: 1;  
       &__header{
-        display:flex;
-        justify-content: center;
         font-size: $fs-h1;
         color:$light;
+        margin-bottom:40px;
+        text-align: left;
+    }
+    &__content{
+        position:relative;
+        z-index:2;
     }
     &__teg{
         font-size: $fs-h4;
         color:$multi;
+        margin-bottom: 20px;
     }
     &__bnr{
     display:grid;
     grid-template-columns: 1fr 1fr;
     align-items:center;
     gap:40px;
+    position: relative;
 }
 &__watermark {
-  position: relative;
-  z-index: 2;
-  
-    
+  position: absolute;
+  z-index: -1;
+  top:0;
+  left:0;
+  height:54em;
+  width:87.5em;
 }
-&__content{
-    
+ &__svg{
+   width: 100%;
+    max-width: 936px;
+    height: auto;
     }
-
+&__img {
+      display:flex;
+    justify-content: flex-end;
+        position:relative;
+        z-index:2;
+}
 }
 
 
@@ -119,8 +144,8 @@
     margin:50px;
     color:$light;
     font-size: $fs-body;
-    position:absolute;
-    top:0;
+    position:relative;
+    top:auto;
     
     &__winner{
         display: flex;
@@ -133,6 +158,13 @@
     &__calender{
         display: flex;
         align-items: center;
+    }
+      &__winner,
+    &__location,
+    &__calender {
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 }
 
@@ -149,6 +181,7 @@
   cursor: pointer;
   text-transform: uppercase;
   font-size: $fs-body;
+  margin:150px;
 
   &__text {
     flex: 1;
@@ -174,7 +207,15 @@
   }
 }
 
+.social__media{
+    display:flex;
+    opacity: 32%;
+    width:44px;
+    height:44px;
+    gap:20px;
+   
 
+}
 
 .contacts {
 display:flex;
