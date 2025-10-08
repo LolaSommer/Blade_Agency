@@ -1,24 +1,4 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-}
-html,body{
-    max-width: 100%;
-    overflow-x:hidden;
-}
-.container {
-  &__participants{
-    max-width: 1500px;
-    margin: 0 auto;      
-    padding: 0 20px;
-  }
-  &__jury{
-    margin: 0 auto;      
-    padding: 20px 20px;
-  }
-}
-
+/*навигация, ссылки, логотип,выбор языка*/
 .header {
    display:flex;
    justify-content: space-between;
@@ -58,27 +38,21 @@ html,body{
     color:$light;
    }
 }
-
 .nav {
-    &__item{
-      
-    }
-    
     &__list {
         display: flex;
         list-style: none;
         margin:0;
         padding:0;
         gap:clamp(50px,3vw,100px);
-        text-transform: uppercase;
-        
+        text-transform: uppercase;  
     }
     &__link { 
         text-decoration: none;
         color:$light;
     }
 }
-
+/*главная страница, секция герой, картинка, заголовок, водяной знак*/
 .hero {
   background-image:
     linear-gradient(to right,
@@ -133,10 +107,7 @@ html,body{
         z-index:2;
 }
 }
-
-
-
-
+/*иконки на главной странице*/
 .icon {
     display:grid;
     grid-template-columns: repeat(3,1fr);
@@ -167,91 +138,7 @@ html,body{
         gap: 10px;
     }
 }
-
-
-
-
-.btn {
-  display: flex;
-  width: 403px;
-  height: 93px;
-  border: none;
-  padding: 0;
-  background: $light;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-size: $fs-body;
-  margin:150px;
-
-  &__text {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-    color: $dark;
-  }
-
-  &__icon {
-    width: 90px;
-    height: 100%;
-    background: $multi;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    svg {
-      width: 30px;
-      height: 30px;
-      stroke: $dark; 
-    }
-  }
-}
-
-.social__media{
-    display:flex;
-    opacity: 32%;
-    width:44px;
-    height:44px;
-    gap:20px;
-   
-
-}
-
-.contacts {
-display:flex;
-white-space: nowrap;
-&__cols{
-    white-space: normal;	
-	display: inline-block;
-	width: 48%;
-	vertical-align: top;
-}
-&__info{
-   display: flex;
-   gap:50px;
-    
-   
-}
-&__map {
-    max-width:810px;
-    max-height:462px;
-}
-&__items {
-    
-}
-&__media{
-    display: flex;
-    list-style: none;
-}
-}
-
-h2 {
-    font-size: $fs-h2;
-}
-h1 {
-    font-size: $fs-h1;
-}
-
+/*карточки участников*/
 .slider {
     position:relative;
     margin:0;
@@ -309,7 +196,7 @@ h1 {
         padding:20px;
     }
 }
-
+/*карточки жюри*/
 .jury{
     
     &__inner{
@@ -338,7 +225,6 @@ h1 {
     line-height: 20px;
     position:relative;
   
-   
     &-country{
         display: flex;
         justify-content: flex-end;
@@ -361,24 +247,151 @@ h1 {
     }
    }
 }
+/*секция с тарифами*/
 .tickets{
+    &__container{
+        max-width: 1200px;
+        padding:0 40px;
+        margin:0 auto;
+        width:100%;
+    }
     &__header{
         font-size: $fs-h1;
+        
     }
-&__wrapper{
-    display:flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap:30px;
+
 }
+.tickets__wrapper{
+ display: grid;
+  grid-template-columns: 1fr 1fr; /* две колонки */
+  align-items: start;
+  gap: 40px;
+    width:100%;
+    gap:30px;
+    
 }
 .payment {
     &__info{
-        flex:1;
-        max-width:40%;
+        
     }
 }
-.table{
-    flex:1;
-    max-width: 55%;
+table.tariffs{
+    
+    border-collapse: collapse;
+
+}
+/*секция с контактами и картой*/
+.contacts {
+display:flex;
+white-space: nowrap;
+
+&__legend{
+    text-transform: uppercase;
+    font-family: $ff-text;
+    font-size: $fs-body;
+    opacity: 32%;
+    font-weight: $fw-bold;
+}
+&__email{
+    border-bottom:1px dashed #000;
+    text-align: center;
+}
+
+&__cols{
+    white-space: normal;	
+	display: inline-block;
+	width: 48%;
+    vertical-align: top;
+    padding:50px;
+}
+&__info{
+   display: flex;
+   gap:50px;
+   font-size: $fs-body; 
+font-family: $ff-text;
+font-weight: $fw-regular;
+   
+}
+&__map {
+    max-width:810px;
+    max-height:462px;
+}
+&__items {
+    
+}
+&__media{
+    display: flex;
+    list-style: none;
+}
+}
+/*форма для отправки сообщения*/
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
+    gap:15px;
+    &__fieldset{
+        border:none;
+    }
+    &__legend{
+     font-size: $fs-text;
+    opacity: 32%;
+    text-transform: uppercase;
+    font-family: $ff-text;
+    }
+    &__input{
+        border:none;
+        font-size: $fs-body;
+        opacity: 50%;
+        font-family: $ff-text;
+        border-bottom: 1px solid #303030;
+        width: 80%;
+        max-width: 540px;
+        padding-block: 0.75em 1.563em;
+        margin-bottom:clamp(10px,2vw,15px);
+        transition: 0.3s;
+        box-sizing: border-box;
+        &:focus{
+            outline: none;
+            border-bottom: 1px solid #000; 
+            opacity: 1;
+        }
+    }
+    &__textarea{
+        border:none;
+         font-size: $fs-body;
+         opacity: 50%;
+         font-family: $ff-text;
+         border-bottom: 1px solid #303030;
+         width: 80%;
+          max-width: 540px;
+        padding-block: 0.75em 1.563em;
+        min-height:clamp(60px, 15vw, 120px);
+        margin-block-end: clamp(12px, 2vw, 35px);
+        &:focus{
+            outline: none;
+            border-bottom: 1px solid #000; 
+            opacity: 1;
+        }
+    }
+    &__btn{
+        border:1px solid #D0D7DD;
+        background-color: $light;
+        font-size: $fs-body;
+        font-family: $ff-text;
+        text-transform: uppercase;
+        width:200px;
+        height: 49px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        text-align: center;
+        transition: transform .3s ease, box-shadow .3s ease;
+        &:hover {
+       transform: translateY(-3px) scale(1.05);
+    }
+     &:focus-visible {
+    outline: 2px solid currentColor; 
+    outline-offset: 2px;
+    }
+}
 }

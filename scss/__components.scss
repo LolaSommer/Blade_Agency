@@ -1,0 +1,44 @@
+/*кнопка брони билета*/
+.btn {
+  display: flex;
+  width: 403px;
+  height: 93px;
+  border: none;
+  padding: 0;
+  background: $light;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: $fs-body;
+  margin:150px;
+
+  &__text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    color: $dark;
+  }
+
+  &__icon {
+    width: 90px;
+    height: 100%;
+    background: $multi;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      stroke: $dark; 
+    }
+  }
+}
+/*иконки соц.сетей на главной странице*/
+.social__media{
+    display:flex;
+    opacity: 32%;
+    width:44px;
+    height:44px;
+    gap:20px;
+}

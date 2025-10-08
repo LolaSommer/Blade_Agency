@@ -40,8 +40,9 @@
                         </div>
                         </div>
                 </header>
+                <main id="main">
         <section class="hero" id="hero" aria-labelledby="hero-heading">
-    <main id="main">
+    
         <div class="container">
             <section class="hero__bnr">
                 <div class="hero__content">
@@ -204,6 +205,7 @@
                                         </section>
                                         </div>
                          <section id="tickets">
+                            <div class="tickets__container">
                             <h3 class="tickets__header">Билеты</h3>
                             <div class="tickets__wrapper">
                             <div class="payment__info">
@@ -219,7 +221,7 @@
                             <p class="payment__text">По всем вопросам, связанным с покупокй, возвратом или предлагаемыми опциями, вы можете обратиться к нашему консультанту по номеру:</p>
                             <p class="payment__tel">+7 (924) 456 78 90</p>
                             </div>
-                            
+                            </div>
                            
                             <div class="table">
                                 <table class="tariffs">
@@ -278,44 +280,61 @@
                          <section id="contacts">
                             <div class="contacts__cols">
                             <h1>Свяжитесь с нами</h1>
-                            <address class="contacts__info">
+                            <div class="contacts__info">
                                 <div class="contacts__items">
-                                    <p>Офис продаж</p>
-                                    <p>363561, Москва ул. Пушкина 17/1</p>
+                                    <p class="contacts__legend">Офис продаж</p>
+                                    <p>363561, Москва</p>
+                                    <p>ул. Пушкина 17/1</p>
                                 </div>
                                 <div class="contacts__items">
-                                    <p>Для связи</p>
+                                    <p class="contacts__legend">Для связи</p>
                                     <p >+7 (924) 456 78 90</p> 
-                                    <p>bfw@gmail.com</p>
+                                    <p class="contacts__email">bfw@gmail.com</p>
                                 </div>
                                 <div class="contacts__items">
-                                    <p>Подпишитесь</p>
+                                    <p class="contacts__legend">Подпишитесь</p>
                                     <ul class="contacts__media">
                                      <li><a href="#"><img src="img/icon_SM-fbm.png" alt="Facebook"></a></li>
                                      <li><a href="#"><img src="img/icon_SM-instam.png" alt="Instagram"></a></li>
                                      <li><a href="#"><img src="img/icon_SM-twitterm.png" alt="Twitter"></a></li>
                                      </ul>
                                 </div>
-                            </address>
+                            </div>
                             <img  class="contacts__map"src="img/map.png" alt="Карта">
                             </div>
                             <div class="contacts__cols">
-                                <h2><p>Отсались вопросы?</p>Спросите нас! Мы ответим!</h2>
+                                <h2><p>Остались вопросы?</p>Спросите нас! Мы ответим!</h2>
                             <div class="contacts__form">
-                                <form>
-                                      <label class="visually-hidden" for="name">Full name</label>
-                                      <input class="contact-form__input" id="name" type="text" name="name" placeholder="Your Full Name">
-                                      <label class="visually-hidden" for="email">Email</label>
-                                      <input class="contact-form__input" id="email" type="email" name="email" placeholder="Email Address">
-                                      <label class="visually-hidden" for="message">Message</label>
-                                      <textarea class="contact-form__textarea" id="message" name="message" placeholder="Your Message"></textarea>
-                                       <button type="submit">Отправить</button>
+                                <form class="contact-form">
+                                    <fieldset class="contact-form__fieldset">
+                                        <legend class="contact-form__legend">Имя</legend>
+                                        <p>
+                                      <label class="visually-hidden" for="name">Введите имя</label>
+                                      <input class="contact-form__input" id="name" type="text" name="name" placeholder="Введите имя">
+                                      </p>
+                                      </fieldset>
+                                      <fieldset class="contact-form__fieldset">
+                                      <legend class="contact-form__legend">Email</legend>
+                                      <p>
+                                      <label class="visually-hidden" for="email">Введите e-mail</label>
+                                      <input class="contact-form__input" id="email" type="email" name="email" placeholder="Введите e-mail">
+                                      </p>
+                                      </fieldset>
+                                      <fieldset class="contact-form__fieldset">
+                                      <legend class="contact-form__legend">Сообщение</legend>
+                                      <p>
+                                      <label class="visually-hidden" for="message">Задайте любой вопрос</label>
+                                      <textarea class="contact-form__textarea" id="message" name="message" placeholder="Задайте любой вопрос"></textarea>
+                                      </p>
+                                       <button class="contact-form__btn" type="submit">Отправить</button>
+                                       </fieldset>
                                 </form>
                             </div>
                             </div>
                          </section>
+                          </div>
                 </main>
-                </div>
+               
                 <footer>
                 </footer>
     </body>
