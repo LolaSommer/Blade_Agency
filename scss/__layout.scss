@@ -250,10 +250,11 @@
 /*секция с тарифами*/
 .tickets{
     &__container{
-        max-width: 1200px;
         padding:0 40px;
         margin:0 auto;
-        width:100%;
+         width:100%;
+         max-width: 1200px;
+       
     }
     &__header{
         font-size: $fs-h1;
@@ -263,11 +264,11 @@
 }
 .tickets__wrapper{
  display: grid;
-  grid-template-columns: 1fr 1fr; /* две колонки */
+  grid-template-columns: 1fr 1fr; 
   align-items: start;
   gap: 40px;
-    width:100%;
-    gap:30px;
+ 
+   
     
 }
 .payment {
@@ -276,14 +277,19 @@
     }
 }
 table.tariffs{
-    
-    border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border:1px solid $multi;
 
 }
 /*секция с контактами и картой*/
 .contacts {
 display:flex;
 white-space: nowrap;
+align-items: start;
+gap:40px;
 
 &__legend{
     text-transform: uppercase;
@@ -303,6 +309,7 @@ white-space: nowrap;
 	width: 48%;
     vertical-align: top;
     padding:50px;
+    
 }
 &__info{
    display: flex;
