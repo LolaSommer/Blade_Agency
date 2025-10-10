@@ -249,41 +249,79 @@
 }
 /*секция с тарифами*/
 .tickets{
-    &__container{
-        padding:0 40px;
-        margin:0 auto;
-         width:100%;
-         max-width: 1200px;
-       
-    }
     &__header{
         font-size: $fs-h1;
-        
     }
-
+    &__wrapper{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding:20px;  
 }
-.tickets__wrapper{
- display: grid;
-  grid-template-columns: 1fr 1fr; 
-  align-items: start;
-  gap: 40px;
+&__table {
+ display:block;
+ width: 100%;
+ min-width: 0;
+ border:1px solid #F2C03F;
+}
+}
+.payment__text{
+ font-size: 18px;
  
-   
-    
 }
-.payment {
-    &__info{
-        
+.payment__link ul{
+    display: flex;
+    list-style: none;
+    gap:50px;
+}
+.tariffs {
+  width:100%;
+  border-collapse: collapse;
+  table-layout: fixed; 
+  text-align: center;
+  font-size: 16px;
+  opacity: 87%;
+}
+ .tariffs td{
+  line-height: 1.4;
+  padding: 8px 12px;
+  }
+.stars {
+  display: block;
+  margin-top: 4px;
+  text-align: center;
+}
+.stars img {
+  width: 12px;
+  vertical-align: middle;
+}
+.star-dark{
+    opacity:40%;
+  }
+.backgold{
+    background-color: rgba(242, 192, 63, 0.1);
+}
+.btn {
+    text-decoration: none;
+    border:1px solid gray;
+    text-align: center;
+    font-size: 18px;
+    color:black;
+    padding: 8px;
+    &btn-violet{
+    background-color: #654EA3;
+    color:white;
+
     }
 }
-table.tariffs{
-  width: 100%;
-  max-width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  border:1px solid $multi;
 
+.payment__tel{
+    color:
+    linear-gradient(to right,
+    rgba(95,75,139,.87) 25%,
+    rgba(101,78,163,.87) 100%);
 }
+
 /*секция с контактами и картой*/
 .contacts {
 display:flex;
