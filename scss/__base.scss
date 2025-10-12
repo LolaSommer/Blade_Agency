@@ -27,15 +27,20 @@ p {
 button{
     margin-top:24px;
 }
-.container {
+.container-xl {
     max-width: 1700px;
     margin:0 auto;
     padding:0 40px;
 }
-.container__tickets{
+.container-m {
     max-width:1600px;
     margin:0 auto;
     padding:0 40px;
+}
+.container-xxl{
+    max-width:2000px;
+    margin:0 auto;
+    padding:0 50px;
 }
 
 

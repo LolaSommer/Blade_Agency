@@ -98,15 +98,20 @@ p {
 button {
   margin-top: 24px; }
 
-.container {
+.container-xl {
   max-width: 1700px;
   margin: 0 auto;
   padding: 0 40px; }
 
-.container__tickets {
+.container-m {
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 40px; }
+
+.container-xxl {
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 50px; }
 
 /*навигация, ссылки, логотип,выбор языка*/
 .header {
@@ -225,12 +230,18 @@ button {
   margin: 0; }
   .slider__inner {
     display: flex;
+    flex-wrap: nowrap;
     gap: 30px;
     list-style: none;
-    transition: opacity 1s ease-in-out; }
+    padding: 0;
+    margin: 0; }
   .slider__item {
     position: relative;
-    align-items: center; }
+    flex: 0 0 480px; }
+  .slider img {
+    display: block;
+    max-width: 100%;
+    height: auto; }
 
 .card {
   display: flex;
@@ -262,10 +273,12 @@ button {
     font-size: 14px;
     text-transform: uppercase; }
 
-.participants__slider {
-  text-align: left;
-  margin: 20px;
-  padding: 20px; }
+.participants {
+  position: relativ; }
+  .participants__slider {
+    text-align: left;
+    margin: 20px;
+    padding: 20px; }
 
 /*карточки жюри*/
 .jury__inner {
@@ -387,8 +400,6 @@ button {
 
 /*секция с контактами и картой*/
 .contacts {
-  display: flex;
-  white-space: nowrap;
   align-items: start;
   gap: 40px; }
   .contacts__legend {
@@ -518,5 +529,84 @@ button {
   width: 44px;
   height: 44px;
   gap: 20px; }
+
+.gutter {
+  position: fixed;
+  left: 40px;
+  /* подгони отступ от края */
+  top: 0;
+  height: 100vh;
+  width: 1px;
+  /* ширина линии */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 900; }
+
+/* Линии: занимают всё, кроме центра */
+.gutter__line {
+  flex: 1;
+  /* главное: линия сама растягивается */
+  width: 1px;
+  background: #cfcfcf;
+  /* цвет линии */ }
+
+/* Центральный блок — ровно посередине */
+.gutter__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  /* расстояние между стрелками и счётчиком */
+  padding: 6px 0;
+  /* маленький отступ, чтобы линия не прилипала */ }
+
+/* Стрелки одна под другой */
+.gutter__arrows {
+  display: flex;
+  flex-direction: column;
+  /* ВЕРТИКАЛЬНО! */
+  gap: 8px;
+  align-items: center; }
+
+/* Чевроны стрелок */
+.gutter__arrow {
+  width: 12px;
+  height: 12px;
+  border: solid #8c8c8c;
+  border-width: 0 1px 1px 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  opacity: .7;
+  transition: opacity .15s; }
+
+.gutter__arrow:hover {
+  opacity: 1; }
+
+.gutter__arrow--up {
+  transform: rotate(-135deg); }
+
+/* ↑ */
+.gutter__arrow--down {
+  transform: rotate(45deg); }
+
+/* ↓ */
+/* Вертикальная надпись 02 / 05 */
+.gutter__count {
+  writing-mode: vertical-rl;
+  /* текст вертикально */
+  transform: rotate(180deg);
+  /* чтобы читалось сверху вниз */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 600 12px/1 "Inter", sans-serif;
+  /* подгони под свой шрифт */
+  color: #5e5e5e;
+  letter-spacing: .5px; }
+
+.gutter__slash {
+  opacity: .6; }
 
 /*# sourceMappingURL=style.css.map */
