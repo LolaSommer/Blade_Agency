@@ -400,8 +400,11 @@ button {
 
 /*секция с контактами и картой*/
 .contacts {
-  align-items: start;
-  gap: 40px; }
+  align-items: start; }
+  .contacts__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px; }
   .contacts__legend {
     text-transform: uppercase;
     font-family: "Lato";
@@ -413,10 +416,9 @@ button {
     text-align: center; }
   .contacts__cols {
     white-space: normal;
-    display: inline-block;
-    width: 48%;
     vertical-align: top;
-    padding: 50px; }
+    width: 100%;
+    height: auto; }
   .contacts__info {
     display: flex;
     gap: 50px;
@@ -424,16 +426,45 @@ button {
     font-family: "Lato";
     font-weight: 400; }
   .contacts__map {
-    max-width: 810px;
-    max-height: 462px; }
+    position: relative; }
   .contacts__media {
     display: flex;
     list-style: none; }
 
+.map__mark {
+  position: absolute;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border: 20px solid #000000;
+  border-radius: 50%;
+  bottom: 42%;
+  left: 15%;
+  transform: scaleX(0.8) translate(-50%, -100%); }
+  .map__mark:after {
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    border-top: 16px solid #000;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    width: 0;
+    height: 0;
+    border-radius: 2px; }
+  .map__mark:before {
+    position: relative;
+    width: 5px;
+    height: 5px;
+    z-index: 2;
+    border-radius: 50%;
+    border: 12px solid #F7BF2F; }
+
 /*форма для отправки сообщения*/
 .contact-form {
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
   gap: 15px; }
   .contact-form__fieldset {
@@ -451,8 +482,6 @@ button {
     border-bottom: 1px solid #303030;
     width: 80%;
     max-width: 540px;
-    padding-block: 0.75em 1.563em;
-    margin-bottom: clamp(10px, 2vw, 15px);
     transition: 0.3s;
     box-sizing: border-box; }
     .contact-form__input:focus {
@@ -467,8 +496,7 @@ button {
     border-bottom: 1px solid #303030;
     width: 80%;
     max-width: 540px;
-    padding-block: 0.75em 1.563em;
-    min-height: clamp(60px, 15vw, 120px);
+    padding-block: 0.75em 1em;
     margin-block-end: clamp(12px, 2vw, 35px); }
     .contact-form__textarea:focus {
       outline: none;
