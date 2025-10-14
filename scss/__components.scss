@@ -43,12 +43,13 @@
     gap:20px;
 }
 
+/*вертикальная линия через все страницы*/
 .gutter {
   position: fixed;
-  left: 40px;                 /* подгони отступ от края */
+  left: 40px;                
   top: 0;
   height: 100vh;
-  width: 1px;                 /* ширина линии */
+  width: 1px;               
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,24 +58,24 @@
 
 /* Линии: занимают всё, кроме центра */
 .gutter__line {
-  flex: 1;                    /* главное: линия сама растягивается */
+  flex: 1;                  
   width: 1px;
-  background: #cfcfcf;        /* цвет линии */
+  background: #cfcfcf;     
 }
 
-/* Центральный блок — ровно посередине */
+/* Центральный блок — посередине */
 .gutter__center {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;                  /* расстояние между стрелками и счётчиком */
-  padding: 6px 0;             /* маленький отступ, чтобы линия не прилипала */
+  gap: 10px;                  
+  padding: 6px 0;             
 }
 
 /* Стрелки одна под другой */
 .gutter__arrows {
   display: flex;
-  flex-direction: column;     /* ВЕРТИКАЛЬНО! */
+  flex-direction: column;   
   gap: 8px;
   align-items: center;
 }
@@ -98,12 +99,12 @@
 
 /* Вертикальная надпись 02 / 05 */
 .gutter__count {
-  writing-mode: vertical-rl;     /* текст вертикально */
-  transform: rotate(180deg);     /* чтобы читалось сверху вниз */
+  writing-mode: vertical-rl;    
+  transform: rotate(180deg);     
   display: flex;
   align-items: center;
   gap: 6px;
-  font: 600 12px/1 "Inter", sans-serif;  /* подгони под свой шрифт */
+  font: 600 12px/1 "Inter", sans-serif;  
   color: #5e5e5e;
   letter-spacing: .5px;
 }
@@ -112,3 +113,47 @@
   opacity: .6;
 }
 
+/*метка на карте*/
+.contact__map{
+  position:relative;
+}
+ .map__mark{
+    position:absolute;
+    z-index: 1; 
+    box-sizing: border-box; 
+    width: 30px; 
+    height: 30px; 
+    border: 18px solid #000000; 
+    border-radius: 50%; 
+    bottom:32%;
+    left: 34%; 
+    transform: scaleY(1.1) translate(-50%, -100%);
+
+    &:after{
+        position:absolute;
+        bottom:-43px; 
+        left: 50%; 
+        transform: translateX(-50%);
+      content:"";
+       border-top: 18px solid #000;
+       border-left: 18px solid transparent;
+       border-right:18px solid transparent;
+       border-bottom:18px solid transparent;
+       width:0;
+       height:0;
+       border-radius: 15px;
+    }
+    &:before{
+      content:"";
+        position: absolute;
+        width: 15px;
+        height:15px;
+        z-index: 2;
+        border-radius: 50%;
+        background-color:#f5f5f5;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -60%);
+    }
+   
+   }
