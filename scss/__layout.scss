@@ -167,7 +167,8 @@
 }
 .card {
  display:grid;
- grid-template-columns: auto 1fr auto;
+ grid-template-columns: 2fr 1fr;
+ gap:20px;
  background-color: #F4F4F4;
  width: clamp(280px, 30vw, 420px);
  height: clamp(90px, 10vw, 110px);
@@ -178,26 +179,28 @@
  align-items: center;
  padding:clamp(8px, 1vw, 16px);
  border-radius:4px;
+ 
  &__people{
   display:flex;
+ 
+ 
+ align-items: start;
  }
- &__location{
-  display: flex;
-  flex-direction: column;
- }
+
 
  &__foto{
     width:64px;
     height: 58px;
-    padding:10px;
+    margin-bottom:10px;
  }
  &__social{
     display: flex;
     list-style: none;
     align-items: end;
+    justify-content: flex-end;
+    margin-top:clamp(2rem,4vw,3.75rem);
  }
  &__name{
-     display:block;
     font-size: $fs-h4;
     margin:0;
     white-space: normal;
@@ -205,6 +208,8 @@
  &__country{
  font-size: $fs-text;
  text-transform: uppercase;
+ opacity: 32%;
+
  }
 }
 .participants{
