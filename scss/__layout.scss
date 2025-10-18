@@ -6,7 +6,7 @@
    background-image:linear-gradient(to right,
   #654EA3 25%,
   #5F4B8B 100%);
-  opacity: 87%;
+  opacity:0.87;
    font-size:$fs-body;
    position:sticky;
    top:0;
@@ -165,9 +165,33 @@
       height: auto;
     }
 }
+/*карточки участников*/
+.slider {
+    position:relative;
+    margin:0;
+
+    &__inner{
+        display:flex;
+        flex-wrap: nowrap;
+        gap:30px;
+        list-style: none;
+       padding:0;
+       margin:0;
+       
+    }
+    &__item{
+        position:relative;
+        flex:0 0 480px;
+        
+    }
+    img{
+      display:block;
+      max-width: 100%;
+      height: auto;
+    }
+}
 .card {
- display:grid;
- grid-template-columns: 2fr 1fr;
+ display:flex;
  gap:20px;
  background-color: #F4F4F4;
  width: clamp(280px, 30vw, 420px);
@@ -175,43 +199,57 @@
  position:absolute;
  bottom: clamp(-40px, -5vw, -75px);
  left: clamp(-10px, -2vw, -25px);
- margin: 0 10px 0 0;
- align-items: center;
+ align-items: stretch;
  padding:clamp(8px, 1vw, 16px);
  border-radius:4px;
  
  &__people{
-  display:flex;
- 
- 
- align-items: start;
+display: grid;
+grid-template-columns: auto 1fr;
+grid-template-rows: auto auto;
+column-gap:13px;
+align-items: start;
  }
 
 
  &__foto{
+  display: block;
+  grid-row: 1/3;
+  grid-column: 1;
     width:64px;
     height: 58px;
-    margin-bottom:10px;
+    object-fit: cover;
  }
- &__social{
-    display: flex;
-    list-style: none;
-    align-items: end;
-    justify-content: flex-end;
-    margin-top:clamp(2rem,4vw,3.75rem);
- }
+
  &__name{
+  grid-row:1;
+  grid-column: 2;
     font-size: $fs-h4;
     margin:0;
     white-space: normal;
  }
  &__country{
+  grid-row:2;
+  grid-column: 2;
  font-size: $fs-text;
  text-transform: uppercase;
- opacity: 32%;
+ opacity: 0.32;
+
 
  }
+ &__location{
+  margin-left: auto;
+  align-self: flex-end;
+ }
+ &__social{
+  display: flex;
+  gap:12px;
+  list-style: none;
+  padding: 0;
+ }
+
 }
+
 .participants{
   position:relativ;
     &__slider{
