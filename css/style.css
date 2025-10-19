@@ -124,7 +124,8 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  width: 100%; }
+  width: 100%;
+  transition: background 0.5s ease, opacity 0.5s ease; }
   .header__media {
     flex: 1;
     color: #F7BF2F;
@@ -676,5 +677,17 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -60%); }
+
+/*модификаторы для скрипта JS*/
+.nav__link--dark {
+  color: #000; }
+
+.header__media--hidden {
+  opacity: 0;
+  pointer-events: none; }
+
+.header--white {
+  background: #fff;
+  opacity: 1; }
 
 /*# sourceMappingURL=style.css.map */

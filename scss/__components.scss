@@ -157,3 +157,15 @@
     }
    
    }
+   /*модификаторы для скрипта JS*/
+.nav__link--dark{
+  color:#000;
+}
+.header__media--hidden{
+  opacity:0;
+  pointer-events:none;
+}
+.header--white{
+  background:#fff;
+  opacity: 1;
+}
