@@ -31,15 +31,17 @@
                 </ul>
             </nav>
             <div class="language">
-                <button class="language__current">
-                    <img src="/img/flag_ru.png" class="language__flag"alt="">РУС
+                <button class="language__current">РУС
+                      <svg class="language__arrow" width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </svg>
                 </button>
                 <ul class="language__list">
-                    <li data-value="ru">
-                        <img src="/img/flag_ru.png"alt="">
+                    <li data-value="ru" class="language__option is-selected">
+                        <img src="/img/flag_ru.png"alt="">РУС
                     </li>
-                    <li data-value="en">
-                        <img src="/img/flag_us.png" alt="">АНГЛ.
+                    <li data-value="en" class="language__option">
+                        <img src="/img/flag_us.png" alt="">АНГЛ
                     </li>
                 </ul>
             <label class="visually-hidden" for="lang">Выбор языка</label>
@@ -200,7 +202,9 @@
                              <div class="jury__slider">
                                 <ul class="jury__inner">
                                     <li class="jury__item">
+                                        <div class="jury__wrapper">
                                         <img src="img/Davis.png" alt=" Фото: Давис Бертанс">
+                                        </div>
                                         <div class="jury__card">
                                             <p class="jury__card-country">Литва</p>
                                             <p class="jury__card-firstname">Давис</p>
@@ -240,6 +244,7 @@
                                             </ul>
                                             </div>
                                          </li>
+                                </ul>
                                          </div>
                                          </div>
                                         </section>
