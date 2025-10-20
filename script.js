@@ -2,6 +2,7 @@ const header = document.querySelector('.header');
 const hero = document.querySelector('.hero');
 const navLinks = document.querySelectorAll('.nav__link');
 const media = document.querySelector('.header__media');
+
 window.addEventListener('scroll', () => {
   if (window.scrollY <= hero.offsetHeight) {
     header.classList.remove('header--white');
@@ -11,6 +12,9 @@ window.addEventListener('scroll', () => {
     header.classList.add('header--white');
     navLinks.forEach(link => link.classList.add('nav__link--dark'));
     media.classList.remove('header__media--hidden');
+   
   }
 });
+
+
 

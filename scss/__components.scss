@@ -161,11 +161,44 @@
 .nav__link--dark{
   color:#000;
 }
-.header__media--hidden{
+.header{
+  &--white{
+   background:#fff;
+  opacity: 1;
+  }
+  &__media--hidden{
   opacity:0;
   pointer-events:none;
+  }
 }
-.header--white{
-  background:#fff;
-  opacity: 1;
+.language{ 
+  position:relative; 
+  margin-inline:clamp(1rem,4vw,4.375rem);
+  &__list{ 
+    display:none;
+    position:absolute;
+    background:#fff;
+    border-radius: 4px; 
+    top:100%; 
+    right:0; 
+  } 
+  &__current{ 
+    z-index: 1; 
+    display:flex; 
+    background:inherit;
+    color:$light;
+    border:none;
+    align-items: center;
+    margin-bottom: 18px;
+     }
+      &__native{
+        display:none;
+       }
+       &__flag{
+         vertical-align: middle;
+  display: inline-block;
+       }
+       }
+.language.open .language__list {
+  display: block;
 }

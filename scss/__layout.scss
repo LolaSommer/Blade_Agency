@@ -29,13 +29,6 @@
     align-items: center;
     justify-content: center;
    }
-   &__language-select{
-    display:flex;
-    margin-inline:clamp(1rem,4vw,4.375rem);
-      background:inherit;
-    color:$light;
-    border:none;
-   }
 }
 
 .nav {

@@ -30,15 +30,26 @@
                     <li class="nav__item"><a href="#contacts" class="nav__link">контакты</a></li>
                 </ul>
             </nav>
-            <div class="lang">
+            <div class="language">
+                <button class="language__current">
+                    <img src="/img/flag_ru.png" class="language__flag"alt="">РУС
+                </button>
+                <ul class="language__list">
+                    <li data-value="ru">
+                        <img src="/img/flag_ru.png"alt="">
+                    </li>
+                    <li data-value="en">
+                        <img src="/img/flag_us.png" alt="">АНГЛ.
+                    </li>
+                </ul>
             <label class="visually-hidden" for="lang">Выбор языка</label>
-            <select id="lang" name="language-switch" class="header__language-select">
-                            <option value="ru"><img src="img/flag_ru.png">РУС</option>
-                            <option value="en"><img src="img/flag_us.png">АНГЛ.</option>
-                          
+            <select id="lang" name="lang" class="language__native">
+                            <option value="ru" selected>РУС</option>
+                            <option value="en">АНГЛ.</option> 
                         </select>
                         </div>
-                        </div>
+            </div>
+            
                 </header>
                <aside class="gutter">
   <div class="gutter__line gutter__line--top"></div>
