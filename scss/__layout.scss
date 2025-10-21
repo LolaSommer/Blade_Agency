@@ -3,16 +3,13 @@
    display:flex;
    justify-content: space-between;
    align-items: center;
-   background-image:linear-gradient(to right,
-  #654EA3 25%,
-  #5F4B8B 100%);
-  opacity:0.87;
-   font-size:$fs-body;
+   background-image:$bg-gradient-main;
    position:sticky;
    top:0;
    z-index:100;
    width: 100%;
-    transition: background 0.5s ease, opacity 0.5s ease;
+  transition: background 0.5s ease, opacity 0.5s ease;
+  
  
    &__media {
     flex: 1;
@@ -22,7 +19,7 @@
    &__logo{
     display:flex;
     background:$light;
-    width:clamp(200px,20vw,260px);
+    width:clamp(12.5rem,20vw,16.25rem);
     aspect-ratio: 13/8;
     margin-left:clamp(1rem,3vw,3.125rem);
     text-align: center;
@@ -37,7 +34,7 @@
         list-style: none;
         margin:0;
         padding:0;
-        gap:clamp(3.125rem,3vw,6.25rem);
+        gap:clamp(2rem,3vw,4rem);
         text-transform: uppercase;  
     }
     &__link { 
@@ -60,9 +57,8 @@
     padding-block:clamp(2rem,6vw,4rem);
     padding-inline:0;
     
-    z-index: 1;  
+   
       &__header{
-        font-size: $fs-h1;
         color:$light;
         margin-bottom:clamp(1rem,4vw,2.5rem);
         text-align: left;
@@ -85,7 +81,7 @@
 }
 &__watermark {
   position: absolute;
-  z-index: -1;
+  z-index:0;
   top:0;
   left:0;
   height:clamp(27em,54vw,54em);
@@ -104,6 +100,7 @@
         z-index:2;
 }
 }
+
 /*иконки на главной странице*/
 .icon {
     display:grid;
@@ -111,29 +108,17 @@
     gap:clamp(0.625rem,2vw,1.25rem);
     margin:clamp(2rem,3vw,3.125rem);
     color:$light;
-    font-size: $fs-body;
     position:relative;
     top:auto;
+  
+    &__winner,
+&__location,
+&__calender {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
     
-    &__winner{
-        display: flex;
-        align-items: center;
-    }
-    &__location{
-        display:flex;
-         align-items: center;
-    }
-    &__calender{
-        display: flex;
-        align-items: center;
-    }
-      &__winner,
-    &__location,
-    &__calender {
-        display: flex;
-        align-items: center;
-        gap: 0.625rem;
-    }
 }
 /*карточки участников*/
 .slider {
@@ -151,7 +136,7 @@
     }
     &__item{
         position:relative;
-        flex:0 0 480px;
+        flex:0 0 30rem;
         
     }
     img{
@@ -163,21 +148,21 @@
 .card {
  display:grid;
  grid-template-rows: auto 1fr auto;
- gap:20px;
+ gap:1.25rem;
  background-color: #F4F4F4;
- min-width: clamp(280px, 30vw, 420px);
+ min-width: clamp(17.5rem, 30vw, 26.25rem);
  position:absolute;
- bottom: clamp(-40px, -5vw, -75px);
- left: clamp(-10px, -2vw, -25px);
+ bottom: clamp(-2.5rem, -5vw, -4.688rem);
+ left: clamp(-0.625rem, -2vw, -1.563rem);
  align-items: stretch;
- padding:clamp(8px, 1vw, 16px);
- border-radius:4px;
+ padding:clamp(0.5rem, 1vw, 1rem);
+ border-radius:0.25rem;
  
  &__people{
 display: grid;
 grid-template-columns: auto 1fr;
 grid-template-rows: auto auto;
-column-gap:13px;
+column-gap:0.813rem;
 align-items: start;
  }
 
@@ -196,10 +181,9 @@ align-items: start;
     margin:0;
     white-space: normal;
  }
- &__country{
+ &__country-label{
   grid-row:2;
   grid-column: 2;
- font-size: $fs-text;
  text-transform: uppercase;
  opacity: 0.32;
 
@@ -211,7 +195,7 @@ align-items: start;
  }
  &__social{
   display: flex;
-  gap:12px;
+  gap:0.75rem;
   list-style: none;
   padding: 0;
  }
@@ -219,7 +203,7 @@ align-items: start;
 }
 
 .participants{
-  position:relativ;
+  position:relative;
     &__slider{
         text-align: left;
         margin:clamp(1rem,2vw,1.25rem);
@@ -237,10 +221,10 @@ align-items: start;
       &__social {
         display: flex;
         justify-content: flex-end;
-        gap:10px;
+        gap:0.625rem;
         position:absolute;
-        bottom:10px;
-        right:10px;
+        bottom:0.625rem;
+        right:0.625rem;
         list-style: none;
     }
     &__item{
@@ -249,40 +233,29 @@ align-items: start;
     }
     &__wrapper{
     grid-row:1/2;
-    &img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-    }
     }
    &__card{
     grid-row:2/3;
     background-color: #F4F4F4;
     align-items: center;
-    padding:10px;
-    border-radius:4px;
-    line-height: 20px;
+    padding:clamp(0.313rem,2vw,0.625rem);
+    border-radius:0.25rem;
     position:relative;
-    margin-top:-20px;
+    margin-top:-1.25rem;
   
     &-country{
         display: flex;
         justify-content: flex-end;
-        font-size: $fs-body;
         text-transform: uppercase;
         opacity:0.32;
     }
     &-firstname{
-        font-size:$fs-h2;
         font-weight: $fw-bold;
     }
     &-lastname{
          font-weight: $fw-bold;
-        font-size: $fs-h2;
     }
     &-text{
-        font-size: $fs-body;
         font-weight: $fw-regular;
         opacity:0.64;
     }
@@ -291,14 +264,12 @@ align-items: start;
 /* секция с тарифами */
 .tickets {
   &__header {
-    font-size: $fs-h1;
   }
-
   &__wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 3rem;
+    padding: clamp(0.625rem,2vw,1.25rem);
   }
 
   &__table {
@@ -313,11 +284,11 @@ align-items: start;
       border-collapse: collapse;
       table-layout: fixed;
       text-align: center;
-      font-size: 16px;
       opacity: 0.87;
        vertical-align: middle;
        tfoot td{
-        padding:16px 0;
+        padding-block:clamp(0.5rem,2vw,1rem);
+        padding-inline:0;
         vertical-align: middle;
         text-align: center;
        }
@@ -333,14 +304,14 @@ align-items: start;
       th,
       td {
         line-height: 1.4;
-        padding: 8px 12px;
+        padding: 0.5rem 0.75rem;
       }
          a.btn {
          display: inline-block;
         width: auto;
         height:auto;
-        padding:10px 24px;
-        margin:20px;
+        padding:0.625rem 1.5rem;
+        margin:clamp(0.625rem,3vw,1.25rem);
       }
 
       /* золотой фон */
@@ -352,11 +323,11 @@ align-items: start;
       .tariffs__stars {
         .stars {
           display: block;
-          margin-top: 4px;
+          margin-top: 0.25rem;
           text-align: center;
 
           img {
-            width: 12px;
+            width: 0.75rem;
             vertical-align: middle;
 
             &.star-dark {
@@ -371,9 +342,8 @@ align-items: start;
         text-decoration: none;
         border: 1px solid gray;
         text-align: center;
-        font-size: 18px;
         color: black;
-        padding: 8px;
+        padding:0.5rem;
        
         &.btn-violet {
           background-color: #654ea3;
@@ -386,22 +356,17 @@ align-items: start;
 
 /* блок оплаты */
 .payment {
-  &__text {
-    font-size: 18px;
-
-  }
-
   &__link {
     ul {
       display: flex;
       list-style: none;
-      gap: 50px;
+      gap:clamp(1.563rem,3vw,3.125rem);
     }
   }
 
   &__tel {
-    color: violet; 
-    font-size: 21px;
+    color:#654ea3;
+    font-size:$fs-h4;
   }
 }
 
@@ -412,14 +377,12 @@ align-items: start;
 &__wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap:120px;
+    gap:clamp(3.75rem,5vw,7.5rem);
 }
 
 &__legend{
     text-transform: uppercase;
-    font-family: $ff-text;
-    font-size: $fs-body;
-    opacity: 32%;
+    opacity: 0.32;
     font-weight: $fw-bold;
 }
 &__email{
@@ -437,10 +400,8 @@ align-items: start;
 }
 &__info{
    display: flex;
-   gap:50px;
-   font-size: $fs-body; 
-font-family: $ff-text;
-font-weight: $fw-regular;
+   gap:clamp(1.563rem,3vw,3.125rem);
+   font-weight: $fw-regular;
    
 }
 &__map {
@@ -459,25 +420,22 @@ font-weight: $fw-regular;
 /*форма для отправки сообщения*/
 .contact-form{
     margin:0 auto;
-    gap:15px;
+    gap:0.938rem;
 
     &__fieldset{
         border:none;
     }
     &__legend{
      font-size: $fs-text;
-    opacity: 32%;
+    opacity:0.32;
     text-transform: uppercase;
-    font-family: $ff-text;
     }
     &__input{
         border:none;
-        font-size: $fs-body;
-        opacity: 50%;
-        font-family: $ff-text;
+        opacity:0.5;
         border-bottom: 1px solid #303030;
         width: 80%;
-        max-width: 540px;
+        max-width: clamp(16.875rem,30vw,33.75rem);
         transition: 0.3s;
         box-sizing: border-box;
         padding-block: 0.75em 1.563em;
@@ -491,11 +449,11 @@ font-weight: $fw-regular;
     &__textarea{
         border:none;
          font-size: $fs-body;
-         opacity: 50%;
+         opacity:0.5;
          font-family: $ff-text;
          border-bottom: 1px solid #303030;
          width: 80%;
-          max-width: 540px;
+          max-width: clamp(16.875rem,30vw,33.75rem);
         padding-block: 0.75em 1em;
         margin-block-end: clamp(12px, 2vw, 35px);
         &:focus{
@@ -505,14 +463,14 @@ font-weight: $fw-regular;
         }
     }
     &__btn{
+      display: inline-flex;
+      align-items: center;
+      font-size: $fs-body;
         border:1px solid #D0D7DD;
         background-color: $light;
-        font-size: $fs-body;
-        font-family: $ff-text;
         text-transform: uppercase;
-        width:200px;
-        height: 49px;
-        letter-spacing: 2px;
+        padding: 0.75rem 2rem;          
+        letter-spacing: 0.125rem;
         cursor: pointer;
         text-align: center;
         transition: transform .3s ease, box-shadow .3s ease;
@@ -520,8 +478,8 @@ font-weight: $fw-regular;
        transform: translateY(-3px) scale(1.05);
     }
      &:focus-visible {
-    outline: 2px solid currentColor; 
-    outline-offset: 2px;
+    outline: 0.125rem solid currentColor; 
+    outline-offset:0.125rem;
     }
 }
 }

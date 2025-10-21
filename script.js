@@ -35,4 +35,24 @@ list.addEventListener('click', (event)=>{
   list.classList.remove('open');
 });
 
+const gutterCurrent = document.querySelector('.gutter__current');
+const sections = document.querySelectorAll('section');
+let count = 1;
+
+window.addEventListener('scroll', () => {
+  sections.forEach((section, index) => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const scrollPos = window.scrollY + window.innerHeight / 2;
+
+    if (scrollPos >= top && scrollPos < top + height) {
+      count = index + 1;
+    }
+  });
+
+  gutterCurrent.textContent = count.toString().padStart(2, '0');
+});
+
+
+
 
