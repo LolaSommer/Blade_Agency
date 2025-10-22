@@ -45,25 +45,23 @@
 /*главная страница, секция герой, картинка, заголовок, водяной знак*/
 .hero {
   position:relative;
-  background-image:linear-gradient(
-    to right,
-  #654EA3 25%,
-  #5F4B8B 100%);
-  opacity: 87%;
-    background-repeat: no-repeat;
-    background-size: cover;     
-    background-position: right center;
-    min-height: 80vh;             
-    padding-block:clamp(2rem,6vw,4rem);
-    padding-inline:0;
-    
-   
+  background-image:$bg-gradient-main;
+  background-repeat: no-repeat;
+  background-size: cover;     
+  background-position: right center;
+  min-height: 80vh;             
+  padding: 0;
+  z-index:0;
+  padding-top: clamp(3.5rem,7vw,7rem);
       &__header{
         color:$light;
         margin-bottom:clamp(1rem,4vw,2.5rem);
-        text-align: left;
+        text-align: left; 
     }
     &__content{
+      display:flex;
+      flex-direction: column;
+      height: 100%;
         position:relative;
         z-index:2;
     }
@@ -78,20 +76,25 @@
     align-items:center;
     gap:clamp(1rem,4vw,2.5rem);
     position: relative;
+    min-height: 80vh;
 }
 &__watermark {
   position: absolute;
-  z-index:0;
+  z-index:1;
   top:0;
   left:0;
   height:clamp(27em,54vw,54em);
   width:clamp(45em,80vw,87.5em);
-  opacity: 0.2;
+  opacity: 0.1;
+  pointer-events: none;
+  filter: brightness(120%);
+  padding-bottom: clamp(2rem,3vw,3.125rem);;
 }
  &__svg{
    width: 100%;
     max-width: clamp(27em,55vw,58.5em);
     height: auto;
+    z-index: 2;
     }
 &__img {
       display:flex;
@@ -100,6 +103,7 @@
         z-index:2;
 }
 }
+
 
 /*иконки на главной странице*/
 .icon {
@@ -306,11 +310,11 @@ align-items: start;
         line-height: 1.4;
         padding: 0.5rem 0.75rem;
       }
-         a.btn {
+         a.btn--table {
          display: inline-block;
         width: auto;
         height:auto;
-        padding:0.625rem 1.5rem;
+        padding:0.5rem 3rem;
         margin:clamp(0.625rem,3vw,1.25rem);
       }
 
@@ -338,12 +342,21 @@ align-items: start;
       }
 
       /* кнопки "Купить" */
-      .btn {
+      .btn--table {
         text-decoration: none;
         border: 1px solid gray;
         text-align: center;
         color: black;
         padding:0.5rem;
+        font-size: $fs-body;
+        transition: transform .3s ease, box-shadow .3s ease;
+        &:hover {
+        transform: translateY(-3px) scale(1.05);
+        }
+        &:focus-visible {
+        outline: 0.125rem solid currentColor; 
+       outline-offset:0.125rem;
+       }
        
         &.btn-violet {
           background-color: #654ea3;

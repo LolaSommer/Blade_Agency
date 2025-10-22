@@ -13,6 +13,8 @@ html,body{
 }
 section {
     padding:60px 0;
+    width:100%;
+    min-height: 100vh;
 }
 h1,h2,h3 {
     margin-bottom:24px;
@@ -67,7 +69,7 @@ button{
 .container-xxl{
     max-width:2000px;
     margin:0 auto;
-    padding:0 50px;
+    padding-left: 150px;
 }
 
 
