@@ -55,13 +55,23 @@
 }
 /*иконки соц.сетей на главной странице*/
 .social__media{
-    display:flex;
-    opacity:0.32;
-    width:44px;
-    height:44px;
-    gap:20px;
-    margin-top:15rem;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15rem;
 }
+.icon__social{
+  width:44px;
+  height:44px;
+  color:$light;
+  opacity:0.32;
+  transition:color .3s ease;
+  flex-shrink: 0;
+  &:hover{
+  color:$multi;
+}
+}
+
 
 /*вертикальная линия через все страницы*/
 .gutter {
@@ -76,15 +86,15 @@
   z-index: 900;
   font-size: $fs-body;
   &__current,&__total,&__slash{
-    color:$dark
+    color:$guttercolor
   }
   &__total{
-    opacity: 0.87;
+    opacity: 0.7;
   }
   &__line{
   flex: 1;                  
   width: 1px;
-  background:$dark; 
+  background:$guttercolor; 
   }
   &__center{
   display: flex;
@@ -102,7 +112,7 @@
   &__arrow{
   width: 12px;
   height: 12px;
-  border: solid $dark;
+  border: solid $guttercolor;
   border-width: 0 1px 1px 0;
   background: transparent;
   padding: 0;
@@ -117,7 +127,7 @@
   align-items: center;
   gap: 6px;
   font: 600 12px/1 "Inter", sans-serif;  
-  color:$dark;
+  color:$guttercolor;
   letter-spacing: .5px;
   }
  
@@ -126,11 +136,17 @@
 .gutter__arrow--up   { transform: rotate(-135deg); } /* ↑ */
 .gutter__arrow--down { transform: rotate(45deg);   } /* ↓ */
 
-.gutter--dark{
-  &__line,&__current,&__total,&__slash,&__arrow{
-     color: $guttercolor;
-    border-color: $guttercolor;
-    background: $guttercolor;
+.gutter--dark {
+  .gutter__line {
+    background: $dark; 
+  }
+  .gutter__current,
+  .gutter__total,
+  .gutter__slash {
+    color: $dark; 
+  }
+  .gutter__arrow {
+    border-color: $dark; 
   }
 }
 
@@ -267,5 +283,9 @@
     display: block;
   }
   
+}
+
+.icon__social--gold{
+  color: $multi;
 }
 

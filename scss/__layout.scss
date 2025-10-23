@@ -121,9 +121,11 @@
   display: flex;
   align-items: center;
   gap: 0.625rem;
+  color:$light;
+}   
 }
-    
-}
+
+
 /*карточки участников*/
 .slider {
     position:relative;
@@ -203,6 +205,15 @@ align-items: start;
   list-style: none;
   padding: 0;
  }
+ &__icon{
+ width: 1.5rem;
+  height: 1.5rem;
+  color: $iconcolor;
+   &:hover{
+  color:$multi;
+  transition: color 0.3s ease;
+}
+}
 
 }
 
@@ -216,6 +227,15 @@ align-items: start;
 }
 /*карточки жюри*/
 .jury{
+   &__icon{
+  width: 1.5rem;
+  height: 1.5rem;
+  color: $iconcolor;
+   &:hover{
+  color:$multi;
+  transition: color 0.3s ease;
+}
+}
     &__inner{
         display:flex;
         gap:clamp(2rem,3vw,3.125rem);
@@ -263,6 +283,7 @@ align-items: start;
         font-weight: $fw-regular;
         opacity:0.64;
     }
+     
    }
 }
 /* секция с тарифами */
@@ -427,6 +448,15 @@ align-items: start;
 &__media{
     display: flex;
     list-style: none;
+}
+ &__icon{
+  width: 1.5rem;
+  height: 1.5rem;
+  color: $iconcolor;
+   &:hover{
+  color:$multi;
+  transition: color 0.3s ease;
+}
 }
 }
 

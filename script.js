@@ -40,17 +40,27 @@ list.addEventListener('click', (event)=>{
 const gutterCurrent = document.querySelector('.gutter__current');
 const sections = document.querySelectorAll('section'); 
 const gutter =document.querySelector('.gutter');
- let count = 1; window.addEventListener('scroll', () => { 
+ let count = 1; 
+ let activeSection = null;
+ window.addEventListener('scroll', () => { 
   sections.forEach((section, index) => { 
     const top = section.offsetTop; 
     const height = section.offsetHeight; 
+    const bottom = top + height;
     const scrollPos = window.scrollY + window.innerHeight / 2; 
-    if (scrollPos >= top && scrollPos < top + height) { 
+    if (scrollPos >= top && scrollPos < bottom) { 
       count = index + 1; 
+      activeSection = section;
     };
     
     });
-gutterCurrent.textContent = count.toString().padStart(2, '0'); });
+gutterCurrent.textContent = count.toString().padStart(2, '0'); 
+if (activeSection && activeSection.classList.contains('hero')) {
+  gutter.classList.remove('gutter--dark');
+} else {
+  gutter.classList.add('gutter--dark');
+}
+});
 
 
 const btn = document.querySelector('.btn');
@@ -60,3 +70,11 @@ btn.addEventListener('click', () => {
   btnText.classList.toggle('btn__text--gold');
 });
 
+
+const icons = document.querySelectorAll('.icon__social');
+
+icons.forEach(icon => {
+  icon.addEventListener('click', () => {
+    icon.classList.toggle('icon__social--gold');
+  });
+});
