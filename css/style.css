@@ -236,13 +236,20 @@ button {
   gap: clamp(0.625rem, 2vw, 1.25rem);
   margin: clamp(2rem, 3vw, 3.125rem);
   color: #FFFFFF;
-  position: relative;
-  top: auto; }
+  align-items: start; }
+  .icon svg {
+    width: 44px;
+    height: 44px;
+    display: block;
+    flex-shrink: 0;
+    align-items: start; }
   .icon__winner, .icon__location, .icon__calender {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.625rem;
     color: #FFFFFF; }
+  .icon .text-container p {
+    line-height: 1; }
 
 /*карточки участников*/
 .slider {
@@ -412,15 +419,19 @@ button {
       margin: clamp(0.625rem, 3vw, 1.25rem); }
     .tickets__table .tariffs .backgold {
       background-color: rgba(242, 192, 63, 0.1); }
+    .tickets__table .tariffs .tariffs__stars .star {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle; }
+    .tickets__table .tariffs .tariffs__stars .star-dark {
+      width: 16px;
+      height: 16px;
+      opacity: 0.4;
+      vertical-align: middle; }
     .tickets__table .tariffs .tariffs__stars .stars {
       display: block;
       margin-top: 0.25rem;
       text-align: center; }
-      .tickets__table .tariffs .tariffs__stars .stars img {
-        width: 0.75rem;
-        vertical-align: middle; }
-        .tickets__table .tariffs .tariffs__stars .stars img.star-dark {
-          opacity: 0.4; }
     .tickets__table .tariffs .btn--table {
       text-decoration: none;
       border: 1px solid gray;
@@ -439,10 +450,14 @@ button {
         color: white; }
 
 /* блок оплаты */
+.payment__icon {
+  width: 3.688rem;
+  height: 1.688rem; }
 .payment__link ul {
   display: flex;
   list-style: none;
-  gap: clamp(1.563rem, 3vw, 3.125rem); }
+  gap: clamp(1.563rem, 3vw, 3.125rem);
+  align-items: center; }
 .payment__tel {
   color: #654ea3;
   font-size: clamp(1.25rem, 2vw, 1.5rem); }
@@ -573,12 +588,12 @@ button {
     justify-content: center;
     padding-block: clamp(1rem, 2vw, 1.5rem);
     flex: 0 0 5.625rem; }
-    .btn__icon svg {
-      width: 30px;
-      height: 30px;
-      stroke: #1C1515;
-      align-items: center;
-      justify-content: center; }
+  .btn__arrow {
+    width: 30px;
+    height: 30px;
+    stroke: #1C1515;
+    align-items: center;
+    justify-content: center; }
 
 .btn__text.btn__text--gold {
   color: #F7BF2F; }
@@ -778,5 +793,23 @@ button {
 
 .icon__social--gold {
   color: #F7BF2F; }
+
+.slider__arrow {
+  stroke: currentColor;
+  fill: none;
+  width: 10px;
+  height: 20px; }
+  .slider__arrow--right {
+    position: absolute;
+    color: #1C1515;
+    z-index: 3;
+    bottom: 50px;
+    right: 30px; }
+  .slider__arrow--left {
+    position: absolute;
+    z-index: 3;
+    bottom: 50px;
+    right: 50px;
+    color: #1C1515; }
 
 /*# sourceMappingURL=style.css.map */

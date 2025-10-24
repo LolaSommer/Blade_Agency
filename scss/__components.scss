@@ -38,17 +38,15 @@
     align-items: center;
     justify-content: center;
     padding-block: clamp(1rem, 2vw, 1.5rem);
-    flex: 0 0 5.625rem;
-
-
-    svg {
+    flex: 0 0 5.625rem; 
+  }
+    &__arrow {
       width: 30px;
       height: 30px;
       stroke: $dark; 
       align-items: center;
       justify-content: center;
     }
-  }
 }
 .btn__text.btn__text--gold{
   color:$multi;
@@ -288,4 +286,29 @@
 .icon__social--gold{
   color: $multi;
 }
+
+.slider__arrow{ 
+  stroke: currentColor;
+  fill:none;
+  width: 10px;
+  height:20px;
+  
+  &--right{
+  position: absolute;
+  color:$dark; 
+  z-index: 3;
+  bottom:50px;
+  right:30px;
+  } 
+  &--left{
+  position: absolute; 
+  z-index: 3;
+  bottom:50px; 
+  right:50px; 
+  color:$dark;
+  } 
+  }
+
+
+
 

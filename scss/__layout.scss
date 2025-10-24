@@ -107,22 +107,32 @@
 
 /*иконки на главной странице*/
 .icon {
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
-    gap:clamp(0.625rem,2vw,1.25rem);
-    margin:clamp(2rem,3vw,3.125rem);
-    color:$light;
-    position:relative;
-    top:auto;
-  
-    &__winner,
-&__location,
-&__calender {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  color:$light;
-}   
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.625rem, 2vw, 1.25rem);
+  margin: clamp(2rem, 3vw, 3.125rem);
+  color: $light;
+  align-items: start;
+
+  svg {
+    width: 44px;
+    height: 44px;
+    display: block;    
+    flex-shrink: 0;
+    align-items:start;
+  }
+
+  &__winner,
+  &__location,
+  &__calender{
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    color: $light;
+  } 
+.text-container p{
+  line-height: 1;
+}
 }
 
 
@@ -346,19 +356,21 @@ align-items: start;
 
       /* блок со звёздами */
       .tariffs__stars {
+        .star{
+          width:16px;
+          height:16px;
+          vertical-align: middle;
+        }
+        .star-dark{
+          width:16px;
+          height:16px;
+          opacity:0.4;
+          vertical-align: middle;
+        }
         .stars {
           display: block;
           margin-top: 0.25rem;
           text-align: center;
-
-          img {
-            width: 0.75rem;
-            vertical-align: middle;
-
-            &.star-dark {
-              opacity: 0.4;
-            }
-          }
         }
       }
 
@@ -390,11 +402,16 @@ align-items: start;
 
 /* блок оплаты */
 .payment {
+  &__icon{
+    width:3.688rem;
+    height:1.688rem;
+  }
   &__link {
     ul {
       display: flex;
       list-style: none;
       gap:clamp(1.563rem,3vw,3.125rem);
+      align-items: center;
     }
   }
 
@@ -442,9 +459,7 @@ align-items: start;
   position: relative;
   
 }
-&__items {
-    
-}
+
 &__media{
     display: flex;
     list-style: none;
