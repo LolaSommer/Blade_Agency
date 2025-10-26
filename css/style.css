@@ -127,12 +127,12 @@ button {
 .container-xl {
   max-width: 1700px;
   margin: 0 auto;
-  padding: 0 40px; }
+  padding: 0 85px; }
 
 .container-m {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 40px; }
+  padding: 0 5.313rem; }
 
 .container-xxl {
   max-width: 2000px;
@@ -265,6 +265,8 @@ button {
   .slider__item {
     position: relative;
     flex: 0 0 30rem; }
+    .slider__item-inner {
+      position: relative; }
   .slider img {
     display: block;
     max-width: 100%;
@@ -373,6 +375,8 @@ button {
   .jury__card-text {
     font-weight: 400;
     opacity: 0.64; }
+.jury__slider {
+  position: relative; }
 
 /* секция с тарифами */
 .tickets__wrapper {
@@ -794,22 +798,70 @@ button {
 .icon__social--gold {
   color: #F7BF2F; }
 
-.slider__arrow {
+.slider__arrow--small {
   stroke: currentColor;
   fill: none;
-  width: 10px;
-  height: 20px; }
-  .slider__arrow--right {
-    position: absolute;
-    color: #1C1515;
-    z-index: 3;
-    bottom: 50px;
-    right: 30px; }
-  .slider__arrow--left {
-    position: absolute;
-    z-index: 3;
-    bottom: 50px;
-    right: 50px;
-    color: #1C1515; }
+  width: 0.625rem;
+  height: 1.25rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  position: absolute; }
+.slider__arrow--big {
+  stroke: currentColor;
+  fill: none;
+  width: 2rem;
+  height: 4rem;
+  position: absolute;
+  transform: translateY(-50%);
+  filter: brightness(60%) opacity(0.15);
+  cursor: pointer;
+  transition: all 0.3s ease; }
+
+.bnr__arrow--right {
+  color: #1C1515;
+  z-index: 3;
+  bottom: 3.125rem;
+  right: 1.875rem; }
+.bnr__arrow--left {
+  z-index: 3;
+  bottom: 3.125rem;
+  right: 3.125rem;
+  color: #1C1515; }
+.bnr__arrow:hover {
+  color: #F7BF2F;
+  transform: translateY(-50%) scale(1.2); }
+
+.patricipians__arrow {
+  top: 65%; }
+  .patricipians__arrow--right {
+    right: -10rem; }
+  .patricipians__arrow--left {
+    left: -8rem; }
+  .patricipians__arrow:hover {
+    color: #F7BF2F;
+    transform: translateY(-50%) scale(1.2);
+    filter: brightness(150%) opacity(1); }
+
+.line__arrow--right {
+  right: 2.188rem;
+  top: 103%; }
+.line__arrow--left {
+  top: 103%;
+  right: 3.438rem; }
+.line__arrow:hover {
+  color: #F7BF2F;
+  transform: translateY(-50%) scale(1.2); }
+
+.jury__arrow {
+  top: 50%; }
+  .jury__arrow--right {
+    right: -5rem; }
+  .jury__arrow--left {
+    left: -3rem; }
+  .jury__arrow:hover {
+    color: #F7BF2F;
+    transform: translateY(-50%) scale(1.2);
+    filter: brightness(150%) opacity(1); }
 
 /*# sourceMappingURL=style.css.map */

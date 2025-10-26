@@ -287,26 +287,92 @@
   color: $multi;
 }
 
-.slider__arrow{ 
+.slider__arrow{
+  &--small{
   stroke: currentColor;
   fill:none;
-  width: 10px;
-  height:20px;
-  
-  &--right{
+  width:0.625rem;
+  height:1.25rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:all 0.3s ease;
   position: absolute;
+  }
+  &--big{
+  stroke: currentColor;
+  fill:none;
+  width: 2rem;
+  height:4rem;
+  position: absolute;
+  transform: translateY(-50%);
+  filter: brightness(60%) opacity(0.15);
+  cursor:pointer;
+  transition:all 0.3s ease;
+  }
+}
+
+.bnr__arrow{ 
+  &--right{
   color:$dark; 
   z-index: 3;
-  bottom:50px;
-  right:30px;
+  bottom:3.125rem;
+  right:1.875rem;
   } 
   &--left{
-  position: absolute; 
   z-index: 3;
-  bottom:50px; 
-  right:50px; 
+  bottom:3.125rem; 
+  right:3.125rem; 
   color:$dark;
   } 
+   &:hover{
+    color:$multi;
+    transform: translateY(-50%) scale(1.2);
+  }
+  }
+
+  .patricipians__arrow{
+  top:65%;
+   &--right{
+  right:-10rem;
+  } 
+  &--left{
+ left:-8rem;
+  } 
+  &:hover{
+    color:$multi;
+    transform: translateY(-50%) scale(1.2);
+    filter: brightness(150%) opacity(1);
+  }
+  }
+  .line__arrow{
+  &--right{
+  right:2.188rem;
+  top:103%;
+ 
+  }
+  &--left{
+    top:103%;
+    right:3.438rem;
+  }
+    &:hover{
+    color:$multi;
+    transform: translateY(-50%) scale(1.2);
+  }
+  }
+
+.jury__arrow{
+  top:50%;
+  &--right{
+  right:-5rem;
+  } 
+  &--left{
+ left:-3rem;
+  } 
+  &:hover{
+    color:$multi;
+    transform: translateY(-50%) scale(1.2);
+    filter: brightness(150%) opacity(1);
+  }
   }
 
 

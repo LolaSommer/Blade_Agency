@@ -153,6 +153,9 @@
     &__item{
         position:relative;
         flex:0 0 30rem;
+        &-inner{
+          position:relative;
+        }
         
     }
     img{
@@ -294,6 +297,10 @@ align-items: start;
         opacity:0.64;
     }
      
+   }
+   &__slider{
+    position:relative;
+
    }
 }
 /* секция с тарифами */

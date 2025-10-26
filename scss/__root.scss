@@ -37,6 +37,7 @@ $fw-black:900;
 $ff-h:"Playfair Display",serif;
 $ff-text:"Lato",sans-serif;
 
+
 // Mixins
 @mixin media($width) {
     @media (max-width: $width) {
