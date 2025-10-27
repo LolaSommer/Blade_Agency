@@ -307,6 +307,13 @@ align-items: start;
 .tickets {
   &__header {
   }
+  &__cards {
+  display: none;
+  border: 1px solid $guttercolor;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  }
   &__wrapper {
     display: grid;
     grid-template-columns: 0.7fr 1.3fr;
@@ -547,4 +554,124 @@ align-items: start;
     outline-offset:0.125rem;
     }
 }
+}
+/*адаптивные стили*/
+
+@include media(1024px) {
+  .container-xl {
+    padding-inline: clamp(1rem, 3vw, 3.125rem);
+  }
+
+
+}
+@include media(768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-block: clamp(1rem, 3vw, 2.5rem);
+    &__logo {
+      margin-left: clamp(1rem, 3vw, 1.875rem);
+      margin-bottom: clamp(1rem, 3vw, 2.5rem);
+    }
+  }
+  .nav {
+    &__list {
+      flex-direction: column;
+      gap: clamp(1rem, 3vw, 2.5rem);
+    }
+  }
+
+  .hero {
+    &__bnr {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: clamp(1rem, 4vw, 2.5rem);
+    }
+    &__img {
+      justify-content: center;
+    }
+  }
+
+  .tickets {
+    &__wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .contacts {
+    &__wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+  .jury {
+    &__inner {
+      flex-direction: column;
+      gap: clamp(2rem, 3vw, 3.125rem);
+    }
+  }
+ 
+  .contact-form {
+    &__input,
+    &__textarea {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  .hero__watermark {
+    display: none;
+  }
+  .tariffs {
+    th,
+    td {
+      font-size: $fs-text;
+      padding: clamp(0.25rem, 1vw, 0.5rem);
+    }
+    .btn--table {
+      padding: clamp(0.25rem, 1vw, 0.5rem) clamp(1rem, 3vw, 1.5rem);
+      font-size: $fs-text;
+    }
+  }
+  .tickets__table {
+    display: none;
+  }
+    .tickets__cards { 
+      display: flex;
+       flex-direction: column; 
+       gap: 2rem; 
+      }
+      .btn--table {
+    padding: clamp(0.25rem, 1vw, 0.5rem) clamp(1rem, 3vw, 1.5rem);
+    font-size: $fs-text;
+  }
+    .slider__inner{
+    gap:clamp(1rem,3vw,2.5rem);
+    flex-wrap: wrap;
+
+  }
+  }
+
+
+  
+
+@include media(480px) {
+  .icon {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .slider {
+    &__item {
+      flex: 0 0 20rem;
+    }
+  }
+  .jury {
+    &__card {
+      padding: clamp(0.313rem, 2vw, 0.5rem);
+    }
+  }
+  .participants {
+    &__slider {
+      margin: clamp(1rem, 2vw, 1rem);
+      padding: clamp(1rem, 2vw, 1rem);
+    }
+  }
 }

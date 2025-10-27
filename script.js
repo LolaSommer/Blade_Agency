@@ -21,21 +21,32 @@ window.addEventListener('scroll', toggleHeaderState);
 toggleHeaderState(); 
 
 
-const current = document.querySelector('.language__current');
+
 const list = document.querySelector('.language__list');
 const options = document.querySelectorAll('.language__option');
-current.addEventListener('click', () => {
-  list.classList.toggle('open');
+const currentLabel = document.querySelector('.language__label');
+
+lang.addEventListener('click', () => {
+  const expanded = lang.getAttribute('aria-expanded');
+  if (list.classList.contains('open')) {
+    list.classList.remove('open');
+    lang.setAttribute('aria-expanded', 'false');
+  } else {
+    list.classList.add('open');
+    lang.setAttribute('aria-expanded', 'true');
+  }
 });
+
 list.addEventListener('click', (event)=>{
   const clicked=event.target.closest('.language__option');
   if(!clicked) return;
   options.forEach(opt=>opt.classList.remove('is-selected'));
   clicked.classList.add('is-selected');
   const newText=clicked.textContent.trim();
-  current.textContent=newText;
+  currentLabel.textContent = newText;
   list.classList.remove('open');
 });
+
 
 const gutterCurrent = document.querySelector('.gutter__current');
 const sections = document.querySelectorAll('section'); 

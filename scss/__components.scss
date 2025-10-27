@@ -376,5 +376,23 @@
   }
 
 
+@include media(768px) {
+  .gutter {
+    display: none;
+  }
+   .btn {
+    min-width: clamp(12rem, 50vw, 20rem); 
+  }
+  .social__media{
+    margin-top: 10rem;
+  }
+}
+
+@include media(480px) {
+  .btn {
+    min-width: clamp(10rem, 70vw, 18rem); 
+  }
+}
+
 
 

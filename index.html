@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/normaliz.css">
 <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -29,9 +29,11 @@
                     <li class="nav__item"><a href="#tickets" class="nav__link">билеты</a></li>
                     <li class="nav__item"><a href="#contacts" class="nav__link">контакты</a></li>
                 </ul>
+                </div>
             </nav>
             <div class="language">
-                <button class="language__current">РУС
+                <button class="language__current" aria-expanded="false">
+                    <span class="language__label">РУС</span>
                       <svg class="language__arrow" width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
     <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
   </svg>
@@ -52,8 +54,7 @@
                             <option value="ru" selected>РУС</option>
                             <option value="en">АНГЛ.</option> 
                         </select>
-                        </div>
-            </div>
+                    </div>
             
                 </header>
                <aside class="gutter">
@@ -416,6 +417,34 @@
                                         </tr>
                                     </tfoot>
                                 </table>
+                                </div>
+                                <div class="tickets__cards">
+                                <div class="ticket-card">
+                                    <h3 class="card__header">Тариф "Зритель"</h3>
+                                    <p class="card__info">-Пакет форума</p>
+                                    <p class="card__info">-Церемония открытия</p>
+                                    <p class="card__info">-Вход на показ</p>
+                                    <button class="btn--table" type="button">Купить</button>
+                                </div>
+                                <div class="ticket-card">
+                                    <h3 class="card__header">Тариф "Оптимум"</h3>
+                                    <p class="card__info">-Пакет форума</p>
+                                    <p class="card__info">-Церемония открытия</p>
+                                    <p class="card__info">-Вход на показ</p>
+                                    <p class="card__info">-Возможность голосовать</p>
+                                    <p class="card__info">-Доступ за кулисы</p>
+                                    <button class="btn--table" type="button">Купить</button>
+                                </div>
+                                 <div class="ticket-card">
+                                      <h3 class="card__header">Тариф "VIP"</h3>
+                                    <p class="card__info">-Пакет форума</p>
+                                    <p class="card__info">-Церемония открытия</p>
+                                    <p class="card__info">-Вход на показ</p>
+                                    <p class="card__info">-Возможность голосовать</p>
+                                    <p class="card__info">-Доступ за кулисы</p>
+                                    <p class="card__info">-Эксклюзив от кутюрье</p>
+                                    <button class="btn--table" type="button">Купить</button>
+                                 </div>
                                 </div>
                             </div>
                             </div>
