@@ -355,14 +355,7 @@ align-items: start;
         line-height: 1.4;
         padding: 0.5rem 0.75rem;
       }
-         a.btn--table {
-         display: inline-block;
-        width: auto;
-        height:auto;
-        padding:0.5rem 3rem;
-        margin:clamp(0.625rem,3vw,1.25rem);
-      }
-
+        
       /* золотой фон */
       .backgold {
         background-color: rgba(242, 192, 63, 0.1);
@@ -371,13 +364,13 @@ align-items: start;
       /* блок со звёздами */
       .tariffs__stars {
         .star{
-          width:16px;
-          height:16px;
+          width:1rem;
+          height:1rem;
           vertical-align: middle;
         }
         .star-dark{
-          width:16px;
-          height:16px;
+          width:1rem;
+          height:1rem;
           opacity:0.4;
           vertical-align: middle;
         }
@@ -394,10 +387,16 @@ align-items: start;
         border: 1px solid gray;
         text-align: center;
         color: black;
-        padding:0.5rem;
+        padding-inline:2rem;
+        padding-block:0.5rem;
+        min-height: 12rem;
+        font-weight:$fw-regular;
         font-size: $fs-body;
         transition: transform .3s ease, box-shadow .3s ease;
+       
         &:hover {
+          background-color: $multi;
+          color:$light;
         transform: translateY(-3px) scale(1.05);
         }
         &:focus-visible {
@@ -408,6 +407,10 @@ align-items: start;
         &.btn-violet {
           background-color: #654ea3;
           color: white;
+          &:hover {
+          background-color: $multi;
+        transform: translateY(-3px) scale(1.05);
+        }
         }
       }
     }
@@ -432,6 +435,7 @@ align-items: start;
   &__tel {
     color:#654ea3;
     font-size:$fs-h4;
+    text-decoration: none;
   }
 }
 
@@ -453,6 +457,11 @@ align-items: start;
 &__email{
     border-bottom:1px dashed #000;
     text-align: center;
+   
+    &-a{
+    text-decoration: none;
+    color:inherit;
+    }
 }
 
 &__cols{
@@ -460,8 +469,7 @@ align-items: start;
     vertical-align: top;
     width:100%;
     height:auto;
-    
-    
+       
 }
 &__info{
    display: flex;
@@ -486,6 +494,10 @@ align-items: start;
   color:$multi;
   transition: color 0.3s ease;
 }
+}
+&__tel{
+  text-decoration: none;
+  color:inherit;
 }
 }
 

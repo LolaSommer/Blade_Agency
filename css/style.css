@@ -421,21 +421,15 @@ button {
     .tickets__table .tariffs td {
       line-height: 1.4;
       padding: 0.5rem 0.75rem; }
-    .tickets__table .tariffs a.btn--table {
-      display: inline-block;
-      width: auto;
-      height: auto;
-      padding: 0.5rem 3rem;
-      margin: clamp(0.625rem, 3vw, 1.25rem); }
     .tickets__table .tariffs .backgold {
       background-color: rgba(242, 192, 63, 0.1); }
     .tickets__table .tariffs .tariffs__stars .star {
-      width: 16px;
-      height: 16px;
+      width: 1rem;
+      height: 1rem;
       vertical-align: middle; }
     .tickets__table .tariffs .tariffs__stars .star-dark {
-      width: 16px;
-      height: 16px;
+      width: 1rem;
+      height: 1rem;
       opacity: 0.4;
       vertical-align: middle; }
     .tickets__table .tariffs .tariffs__stars .stars {
@@ -447,10 +441,15 @@ button {
       border: 1px solid gray;
       text-align: center;
       color: black;
-      padding: 0.5rem;
+      padding-inline: 2rem;
+      padding-block: 0.5rem;
+      min-height: 12rem;
+      font-weight: 400;
       font-size: clamp(1rem, 1.2vw, 1.125rem);
       transition: transform .3s ease, box-shadow .3s ease; }
       .tickets__table .tariffs .btn--table:hover {
+        background-color: #F7BF2F;
+        color: #FFFFFF;
         transform: translateY(-3px) scale(1.05); }
       .tickets__table .tariffs .btn--table:focus-visible {
         outline: 0.125rem solid currentColor;
@@ -458,6 +457,9 @@ button {
       .tickets__table .tariffs .btn--table.btn-violet {
         background-color: #654ea3;
         color: white; }
+        .tickets__table .tariffs .btn--table.btn-violet:hover {
+          background-color: #F7BF2F;
+          transform: translateY(-3px) scale(1.05); }
 
 /* блок оплаты */
 .payment__icon {
@@ -470,7 +472,8 @@ button {
   align-items: center; }
 .payment__tel {
   color: #654ea3;
-  font-size: clamp(1.25rem, 2vw, 1.5rem); }
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  text-decoration: none; }
 
 /*секция с контактами и картой*/
 .contacts {
@@ -486,6 +489,9 @@ button {
   .contacts__email {
     border-bottom: 1px dashed #000;
     text-align: center; }
+    .contacts__email-a {
+      text-decoration: none;
+      color: inherit; }
   .contacts__cols {
     white-space: normal;
     vertical-align: top;
@@ -507,6 +513,9 @@ button {
     .contacts__icon:hover {
       color: #F7BF2F;
       transition: color 0.3s ease; }
+  .contacts__tel {
+    text-decoration: none;
+    color: inherit; }
 
 /*форма для отправки сообщения*/
 .contact-form {
