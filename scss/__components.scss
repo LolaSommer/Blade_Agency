@@ -375,6 +375,22 @@
   }
   }
 
+  .contact__map {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0; 
+    border: 3px solid $multi; 
+    pointer-events: none; 
+    left:25px;
+    top:10px;
+    width:98%;
+    height: 98%;
+    opacity: 0.54;
+  }
+}
 
 @include media(768px) {
   .gutter {

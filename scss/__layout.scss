@@ -53,6 +53,7 @@
   padding: 0;
   z-index:0;
   padding-top: clamp(3.5rem,7vw,7rem);
+  overflow: hidden;
       &__header{
         color:$light;
         margin-bottom:clamp(1rem,4vw,2.5rem);
@@ -101,9 +102,24 @@
     justify-content: flex-end;
         position:relative;
         z-index:2;
+        /*рамка над фото с мужчиной*/
+        &::after{
+          content:"";
+          position:absolute;
+          width:79%;
+          height:100%;
+          top: -35px;
+           right: -60px; 
+           bottom: auto;
+           left: auto;
+          z-index:1;
+         border-top:$multi 10px solid;
+         border-left: $multi 10px solid;
+        
+        }
+    
 }
 }
-
 
 /*иконки на главной странице*/
 .icon {
@@ -164,6 +180,7 @@
       height: auto;
     }
 }
+/*карточки с дизайнерами под карточками участников*/
 .card {
  display:grid;
  grid-template-rows: auto 1fr auto;
@@ -229,7 +246,6 @@ align-items: start;
 }
 
 }
-
 .participants{
   position:relative;
     &__slider{
@@ -461,6 +477,7 @@ align-items: start;
     &-a{
     text-decoration: none;
     color:inherit;
+    
     }
 }
 
@@ -518,12 +535,12 @@ align-items: start;
         border:none;
         opacity:0.5;
         border-bottom: 1px solid #303030;
-        width: 80%;
+        width: 100%;
         max-width: clamp(16.875rem,30vw,33.75rem);
         transition: 0.3s;
         box-sizing: border-box;
-        padding-block: 0.75em 1.563em;
-        margin-bottom:clamp(10px,2vw,15px);
+        padding-block: 0.75em 1em;
+        
         &:focus{
             outline: none;
             border-bottom: 1px solid #000; 
@@ -536,10 +553,9 @@ align-items: start;
          opacity:0.5;
          font-family: $ff-text;
          border-bottom: 1px solid #303030;
-         width: 80%;
+         width: 100%;
           max-width: clamp(16.875rem,30vw,33.75rem);
         padding-block: 0.75em 1em;
-        margin-block-end: clamp(12px, 2vw, 35px);
         &:focus{
             outline: none;
             border-bottom: 1px solid #000; 
@@ -560,6 +576,8 @@ align-items: start;
         transition: transform .3s ease, box-shadow .3s ease;
         &:hover {
        transform: translateY(-3px) scale(1.05);
+       background: $multi;
+       color:$light;
     }
      &:focus-visible {
     outline: 0.125rem solid currentColor; 
