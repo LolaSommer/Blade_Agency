@@ -89,3 +89,26 @@ icons.forEach(icon => {
     icon.classList.toggle('icon__social--gold');
   });
 });
+
+const btnTables = document.querySelectorAll('.btn--table');
+const modal = document.querySelector('.modal');
+const radios = document.querySelectorAll('.modal__radio');
+const close = document.querySelector('.modal__close');
+for(const btnTable of btnTables){ 
+btnTable.addEventListener('click', (event) =>{
+   event.preventDefault();
+modal.classList.remove('hidden');
+const plan = event.target.dataset.plan;
+for(radio of radios){
+  if(radio.value===plan){
+    radio.checked=true;
+  }else {
+    radio.checked=false;
+  }
+}
+})
+close.addEventListener('click',()=>{
+  modal.classList.add('hidden');
+});
+}
+

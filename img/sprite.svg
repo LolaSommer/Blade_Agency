@@ -272,6 +272,17 @@ stroke="currentColor" stroke-width="2"/>
   />
 </symbol>
 
+<symbol id="icon-radio" viewBox="0 0 24 24" fill="none">
+<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_0_1632)" fill-opacity="0.87"/>
+<path d="M6 11.95L9.72414 16L18 7" stroke="white" stroke-width="3"/>
+<defs>
+<linearGradient id="paint0_linear_0_1632" x1="6.8375" y1="-2.38436e-07" x2="26.6815" y2="11.9715" gradientUnits="userSpaceOnUse">
+<stop offset="0.248619" stop-color="#654EA3"/>
+<stop offset="1" stop-color="#5F4B8B"/>
+</linearGradient>
+</defs>
+</symbol>
+
 </svg>
 
 

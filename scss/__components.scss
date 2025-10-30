@@ -393,33 +393,50 @@
 }
 
 .hidden{
- 
+ display:none !important;
 }
 .modal{
-  max-width: 704px;
+  display:grid;
+  place-items:center;
+  z-index:1000;
   font-size: $fs-body;
   position: fixed;
-  top:0; 
-  left:0; 
-  width:100%;
-  height:100%;
-  margin:clamp(1.562rem,4vw,3.125rem);
+  inset:0;
+  overflow-y:auto;
+  overscroll-behavior: contain;
   
   &__radio{
     font-size: $fs-body;
-    padding-block:0.75em 2em;
-    padding-inline: 1em 1em;
     text-align: start;
+    cursor:pointer;
+    position: relative;
+    width:1.2rem;
+    height:1.2rem;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    appearance: none;
+    &:checked {
+     border-color: transparent;
+    background:$bg-gradient-main;
+    &::after{
+        content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../img/Vector\ 8.svg") center/50% no-repeat;
+    }
+}
+
   }
   &__input{
+    width: 33.75rem;
+    display: block;
+    min-height: 2.5rem;
+    box-sizing: border-box;
     border:none;
     border-bottom: 1px solid $iconcolor;
     font-size: $fs-body;
-    padding-block: 0.75em 1em;
-    padding-inline: 1em 1em;
-    opacity:0.5;
-    max-width: clamp(16.875rem,30vw,33.75rem);
-    width:80%;
+    opacity:0.8;
+    max-width:100%;
     font-family: $ff-text;
    
       &:focus{
@@ -429,29 +446,36 @@
         }
   }
   &__window{
- position: fixed;
- top: 50%; 
- left: 50%; 
- transform: translate(-50%, -50%);
-max-width: 704px;
+position:relative;
+background: $light;
+z-index: 1;
+padding:clamp(0.938rem,4vw,1.875rem);
+ width: 100%;
+  max-width: 48rem;
+border-radius: 0.5rem;
+margin:0 auto;
+box-shadow: 0 8px 24px rgba(0,0,0,.3);
+
+
   }
   &__overlay{
-    width:100%;
-    height:100%;
-    position:fixed;
-    top:0;
-    left:0;
+    position:absolute;
+    inset:0;
+    z-index: 0;
+    background: rgba(0,0,0,.6);
+    backdrop-filter: blur(2px);
   }
   &__form{
       border:none;
       width: 100%;
-      max-width: clamp(16.875rem,30vw,33.75rem);
+      max-width:none;
       transition: 0.3s;
       box-sizing: border-box;
-      padding-block: 0.75em 1em;
+      padding:0;
       display:flex;
       flex-direction: column;
-      line-height: $lh-h1;
+      gap:1.5rem;
+      margin-top: 1.5rem;
       
   }
   &__close{
@@ -459,6 +483,9 @@ max-width: 704px;
   height:20px;
   border:none;
   background: transparent;
+  cursor:pointer;
+  padding: 0.5rem;
+  color:purple;
 
   
 }
@@ -466,16 +493,25 @@ max-width: 704px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap:5px;
+  
 }
 &__icon{
-  width:20px;
-  height:20px;
-  color:$bg-gradient-main;
+  width:1.25rem;
+  height:1.25rem;
+  fill:currentColor;
  
 }
 &__options{
+  display:flex;
+  gap:30px;
   border:none;
     font-family: $ff-text;
+    padding-left:0;
+    align-self: start;
+  margin-top: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
 &__text{
   display: flex;
@@ -484,10 +520,17 @@ max-width: 704px;
   opacity: 0.32;
   font-size:$fs-text;
   border:none;
+   align-self: start;
+   letter-spacing: 0.05em;
 }
-
+&__title{
+  font-weight: $fw-regular;
 }
-
+.btn{
+  margin-top: 1rem;
+  box-shadow:3px 3px 3px 3px #ccc;
+}
+}
 
 
 @include media(768px) {

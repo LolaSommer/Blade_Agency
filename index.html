@@ -121,7 +121,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn" type="button">
+                    <button class="btn"  data-plan="Оптимум"type="button">
                 <span class="btn__text">Бронь билета</span>
                 <span class="btn__icon">
                     <svg class="btn__arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -411,9 +411,9 @@
                                     <tfoot>
                                         <tr class="tariffs__button">
                                             <td></td>
-                                           <td><a href="#" class="btn--table" aria-label="Купить:тариф Зритель">Купить</a></td>
-                                           <td><a href="#" class=" btn--table btn-violet" aria-label="Купить:тариф Оптимум">Купить</a></td>
-                                           <td><a href="#" class="btn--table" aria-label="Купить:тариф VIP">Купить</a></td>
+                                           <td><a href="#" class="btn--table" aria-label="Купить:тариф Зритель" data-plan="Зритель">Купить</a></td>
+                                           <td><a href="#" class=" btn--table btn-violet" aria-label="Купить:тариф Оптимум" data-plan="Оптимум">Купить</a></td>
+                                           <td><a href="#" class="btn--table" aria-label="Купить:тариф VIP" data-plan="VIP">Купить</a></td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -515,14 +515,14 @@
                             </div>
                          </section>  
                 </main>
-                  <script src="script.js"></script>
+                  
                  <div class="modal hidden"  aria-hidden="true">
                     <div class="modal__overlay"></div>
-                    <div class="modal__window">
+                    <div class="modal__window"role="dialog" aria-modal="true" aria-labelledby="modal-title">
                         <div class="modal__header">
-                        <h2 class="modal__title">Чтобы приобрести билет, заполните форму ниже. Мы свяжемся с вами по вопросу оплаты.</h2>
+                        <h2 class="modal__title" id="modal-title">Чтобы приобрести билет, заполните форму ниже. Мы свяжемся с вами по вопросу оплаты.</h2>
                      <button class="modal__close"aria-label="Закрыть">
-                        <svg class="modal__icon" ><use href="img/sprite.svg#icon-close"></use></svg>
+                        <svg class="modal__icon" fill="currentColor" ><use href="img/sprite.svg#icon-close"></use></svg>
                         </button>
                        
                         </div>
@@ -535,9 +535,9 @@
                        </label>
                        <fieldset class="modal__options">
                        <legend class="modal__text">Статус билета</legend>
-                        <label><input class="modal__radio" type="radio" name="ticket" value="Зритель"> Зритель</label>
-                        <label><input class="modal__radio"  type="radio" name="ticket" value="Оптимум"> Оптимум</label>
-                        <label><input class="modal__radio"  type="radio" name="ticket" value="VIP"> VIP</label>
+                        <label class="radio"><input class="modal__radio" type="radio" name="ticket" value="Зритель"> <span class="radio__label">Зритель</span></label>
+                         <label class="radio"><input class="modal__radio" type="radio" name="ticket" value="Оптимум" checked> <span class="radio__label">Оптимум</span></label>
+                         <label class="radio"><input class="modal__radio" type="radio" name="ticket" value="VIP"> <span class="radio__label">VIP</span></label>
                         </fieldset>
                         <button class="btn" type="button">
                          <span class="btn__text">Бронь билета</span>
@@ -551,5 +551,6 @@
                        </form>
                     </div>
                     </div>
+                    <script src="script.js"></script>
     </body>
 </html>
