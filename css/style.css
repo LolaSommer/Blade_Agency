@@ -677,7 +677,8 @@ button {
   min-width: clamp(16rem, 30vw, 25.438rem);
   background: #FFFFFF;
   box-sizing: border-box;
-  transition: transform .3s ease, box-shadow .3s ease; }
+  transition: transform .3s ease, box-shadow .3s ease;
+  color: #1C1515; }
   .btn:hover {
     transform: translateY(-3px) scale(1.05); }
   .btn:focus-visible {
@@ -688,9 +689,10 @@ button {
     flex: 1 1 auto;
     align-items: center;
     justify-content: center;
-    color: #1C1515;
     padding-block: clamp(1rem, 2vw, 1.5rem);
     white-space: nowrap; }
+    .btn__text:hover {
+      color: #F7BF2F; }
   .btn__icon {
     height: auto;
     background: #F7BF2F;
@@ -705,9 +707,6 @@ button {
     stroke: #1C1515;
     align-items: center;
     justify-content: center; }
-
-.btn__text.btn__text--gold {
-  color: #F7BF2F; }
 
 /*иконки соц.сетей на главной странице*/
 .social__media {
@@ -985,6 +984,21 @@ button {
     height: 98%;
     opacity: 0.54; }
 
+.jury__item {
+  position: relative; }
+  .jury__item::before {
+    content: "";
+    right: -1rem;
+    top: -1rem;
+    border-right: 4px solid #F7BF2F;
+    border-top: 4px solid #F7BF2F;
+    border-bottom: 4px solid #F7BF2F;
+    pointer-events: none;
+    position: absolute;
+    width: 4%;
+    height: 97%;
+    opacity: 0.54; }
+
 .hidden {
   display: none !important; }
 
@@ -1098,6 +1112,38 @@ button {
   .modal .btn {
     margin-top: 1rem;
     box-shadow: 3px 3px 3px 3px #ccc; }
+
+.modal--thanks .modal__close, .modal--question .modal__close {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: purple; }
+.modal--thanks .modal__button, .modal--question .modal__button {
+  text-transform: uppercase;
+  background-color: #FFFFFF;
+  border: none;
+  box-shadow: 3px 3px 3px 3px #ccc;
+  padding: 10px;
+  min-width: 200px;
+  transition: all 0.3s ease; }
+  .modal--thanks .modal__button:hover, .modal--question .modal__button:hover {
+    background-color: #F7BF2F;
+    transform: translateY(-4%) scale(1);
+    color: #FFFFFF; }
+.modal--thanks .modal__check, .modal--question .modal__check {
+  width: 64px;
+  height: 64px;
+  display: block;
+  flex-shrink: 0; }
+.modal--thanks .modal__line, .modal--question .modal__line {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 20px; }
 
 @media (max-width: 768px) {
   .gutter {

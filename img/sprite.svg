@@ -282,6 +282,12 @@ stroke="currentColor" stroke-width="2"/>
 </linearGradient>
 </defs>
 </symbol>
+<symbol id="bigIcon-radio" viewBox="0 0 64 64" fill="none">
+   <circle cx="32" cy="32" r="32" fill="#654EA3" opacity="0.87"/>
+  <path d="M16 31.8667L25.931 42.6667L48 18.6667"
+        stroke="white" stroke-width="8"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
 
 </svg>
 

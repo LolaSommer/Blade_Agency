@@ -74,12 +74,10 @@ if (activeSection && activeSection.classList.contains('hero')) {
 });
 
 
-const btn = document.querySelector('.btn');
-const btnText = document.querySelector('.btn__text');
 
-btn.addEventListener('click', () => {
-  btnText.classList.toggle('btn__text--gold');
-});
+
+
+
 
 
 const icons = document.querySelectorAll('.icon__social');
@@ -90,14 +88,16 @@ icons.forEach(icon => {
   });
 });
 
-const btnTables = document.querySelectorAll('.btn--table');
-const modal = document.querySelector('.modal');
+
+
+const btnTables = document.querySelectorAll('.btn--table,.btn');
+const modalForm = document.querySelector('.modal--form');
 const radios = document.querySelectorAll('.modal__radio');
-const close = document.querySelector('.modal__close');
+const closes = document.querySelectorAll('.modal__close');
 for(const btnTable of btnTables){ 
 btnTable.addEventListener('click', (event) =>{
    event.preventDefault();
-modal.classList.remove('hidden');
+modalForm.classList.remove('hidden');
 const plan = event.target.dataset.plan;
 for(radio of radios){
   if(radio.value===plan){
@@ -107,8 +107,71 @@ for(radio of radios){
   }
 }
 })
-close.addEventListener('click',()=>{
-  modal.classList.add('hidden');
-});
 }
 
+const btnSubmit = document.querySelector('.btn-submit');
+const thanksModal = document.querySelector('.modal--thanks');
+const modalButtons = document.querySelectorAll('.modal__button');
+btnSubmit.addEventListener('click', (event)=>{
+  event.preventDefault();
+  thanksModal.classList.remove('hidden');
+})
+ 
+
+const modalQuestion = document.querySelector('.modal--question');
+const contactBtn = document.querySelector('.contact-form__btn');
+contactBtn.addEventListener('click',(event)=>{
+  event.preventDefault();
+  modalQuestion.classList.remove('hidden');
+})
+
+closes.forEach(close => {
+  close.addEventListener('click', () => {
+   close.closest('.modal').classList.add('hidden');
+
+  });
+});
+
+modalButtons.forEach(close=>{
+  close.addEventListener('click',()=>{
+    thanksModal.classList.add('hidden');
+    modalQuestion.classList.add('hidden');
+  })
+})
+
+const form = document.querySelector('.modal--form form');
+const nameInput = form.querySelector('[name="name"]');
+const emailInput = form.querySelector('[name="email"]');
+const radioButtons = form.querySelectorAll('[name="ticket"]');
+checkFormValidity = function() {
+if (nameInput.value.trim() &&
+ emailInput.validity.valid &&
+  Array.from(radioButtons).some(r => r.checked)) {
+  btnSubmit.disabled = false;
+} else {
+  btnSubmit.disabled = true;
+}
+}
+nameInput.addEventListener('input', checkFormValidity);
+emailInput.addEventListener('input', checkFormValidity);
+radioButtons.forEach(r => r.addEventListener('change', checkFormValidity));
+checkFormValidity();
+
+const formQuestion = document.querySelector('.contact-form');
+const nameInputQuestion = formQuestion.querySelector('[name="name"]');
+const emailInputQuestion = formQuestion.querySelector('[name="email"]');
+const questionButton = formQuestion.querySelector('.contact-form__btn')
+const textArea = formQuestion.querySelector('[name="message"]')
+const checkQuestionValidity = function() {
+if (nameInputQuestion.value.trim() &&
+ emailInputQuestion.validity.valid &&
+textArea.value.trim()) {
+  questionButton.disabled = false;
+} else {
+  questionButton.disabled = true;
+}
+}
+nameInputQuestion.addEventListener('input', checkQuestionValidity);
+emailInputQuestion.addEventListener('input', checkQuestionValidity);
+textArea.addEventListener('input', checkQuestionValidity);
+checkQuestionValidity();

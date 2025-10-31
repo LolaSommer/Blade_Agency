@@ -11,6 +11,7 @@
   background: $light;
   box-sizing: border-box;
   transition: transform .3s ease, box-shadow .3s ease;
+  color: $dark;
   &:hover {
   transform: translateY(-3px) scale(1.05);
   }
@@ -24,11 +25,12 @@
     flex:1 1 auto;
     align-items: center;
     justify-content: center;
-    color: $dark;
+    
     padding-block: clamp(1rem, 2vw, 1.5rem);
     white-space: nowrap;
-   
-
+    &:hover{
+      color:$multi;
+    }
   }
 
   &__icon {
@@ -48,9 +50,7 @@
       justify-content: center;
     }
 }
-.btn__text.btn__text--gold{
-  color:$multi;
-}
+
 /*иконки соц.сетей на главной странице*/
 .social__media{
   display: flex;
@@ -391,9 +391,26 @@
     opacity: 0.54;
   }
 }
+.jury__item {
+ position: relative;
+   &::before {
+    content: "";
+    right:-1rem;
+    top:-1rem;
+    border-right: 4px solid $multi; 
+    border-top: 4px solid $multi; 
+    border-bottom: 4px solid $multi; 
+    pointer-events: none; 
+    position: absolute;
+    width:4%;
+    height: 97%;
+    opacity: 0.54;
+  }
+}
+
 
 .hidden{
- display:none !important;
+ display: none !important;
 }
 .modal{
   display:grid;
@@ -530,8 +547,47 @@ box-shadow: 0 8px 24px rgba(0,0,0,.3);
   margin-top: 1rem;
   box-shadow:3px 3px 3px 3px #ccc;
 }
-}
 
+}
+.modal--thanks,.modal--question{
+  .modal__close{
+  width:20px;
+  height:20px;
+  border:none;
+  background: transparent;
+  cursor:pointer;
+  padding: 0.5rem;
+  color:purple;
+  
+}
+.modal__button{
+  text-transform: uppercase;
+  background-color: $light;
+  border:none;
+  box-shadow:3px 3px 3px 3px #ccc;
+  padding:10px;
+  min-width: 200px;
+  transition: all 0.3s ease;
+   &:hover{
+    background-color:$multi;
+    transform: translateY(-4%) scale(1);
+    color:$light;
+  }
+}
+.modal__check{
+  width: 64px;
+  height:64px;
+  display: block;
+  flex-shrink: 0;
+}
+.modal__line{
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap:1rem;
+  margin-bottom: 20px;
+}
+}
 
 @include media(768px) {
   .gutter {
