@@ -12,7 +12,7 @@
   box-sizing: border-box;
   transition: transform .3s ease, box-shadow .3s ease;
   color: $dark;
-  &:hover {
+  &:not(:disabled):hover {
   transform: translateY(-3px) scale(1.05);
   }
   &:focus-visible {
@@ -25,7 +25,6 @@
     flex:1 1 auto;
     align-items: center;
     justify-content: center;
-    
     padding-block: clamp(1rem, 2vw, 1.5rem);
     white-space: nowrap;
     &:hover{
@@ -148,6 +147,11 @@
   }
 }
 
+.invalid{
+  border:1px solid red;
+  outline: none;
+  background-color: rgba(255, 0, 0, 0.05);
+}
 
 
 /*метка на карте*/
@@ -211,7 +215,10 @@
 .language {
   position: relative;
   margin-inline: clamp(1rem, 4vw, 4.375rem);
-
+  &__label{
+    font-weight: $fw-regular;
+  font-family: $ff-text;
+  }
   &__list {
     display: none;
     position: absolute;

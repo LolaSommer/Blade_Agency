@@ -165,6 +165,7 @@
                                 <ul class="slider__inner">
                                     <li class="slider__item">
                                         <div class="slider__item-inner">
+                                            <div class="slider__caption">классика, нуар</div>
                                         <img src="img/nuar.png" alt="nuar">
                                          <div class="card">
                                             <div class="card__people">
@@ -193,6 +194,7 @@
                                          
                                     <li class="slider__item">
                                         <div class="slider__item-inner">
+                                            <div class="slider__caption">авангард, имрессионизм</div>
                                         <img src="img/avangard.png" alt="avangard">
                                         <div class="card">
                                             <div class="card__people">
@@ -222,6 +224,7 @@
                                     </li>
                                     <li class="slider__item">
                                         <div class="slider__item-inner">
+                                            <div class="slider__caption">эклектика, экотренд</div>
                                         <img src="img/eco.png" alt="eco">
                                         <div class="card">
                                             <div class="card__people">
@@ -337,7 +340,7 @@
                                     <li><a href="#"><svg class="payment__icon"><use href="img/sprite.svg#icon-applepay"></use></svg></a></li>
                                 </ul>
                             </div>
-                            <p class="payment__text">По всем вопросам, связанным с покупокй, возвратом</p><p class="payment__text">или предлагаемыми опциями, вы можете обратиться</p><p class="payment__text">к нашему консультанту по номеру:</p>
+                            <p class="payment__text">По всем вопросам, связанным с покупкой, возвратом</p><p class="payment__text">или предлагаемым опциям, вы можете обратиться</p><p class="payment__text">к нашему консультанту по номеру:</p>
                             <p class="payment__tel"><a class="payment__tel" href="tel:79244567890" aria-label="Позвонить в Blade Agency">+7 (924) 456 78 90</a></p>
                             </div>
                             
@@ -490,14 +493,14 @@
                                         <legend class="contact-form__legend">Имя</legend>
                                         <p>
                                       <label class="visually-hidden" for="name">Введите имя</label>
-                                      <input class="contact-form__input" id="name" type="text" name="name" placeholder="Введите имя">
+                                      <input class="contact-form__input" id="name" type="text" name="name" placeholder="Введите имя"  pattern="[A-Za-zА-Яа-яЁё\s\-]+" required >
                                       </p>
                                       </fieldset>
                                       <fieldset class="contact-form__fieldset">
                                       <legend class="contact-form__legend">Email</legend>
                                       <p>
                                       <label class="visually-hidden" for="email">Введите e-mail</label>
-                                      <input class="contact-form__input" id="email" type="email" name="email" placeholder="Введите e-mail">
+                                      <input class="contact-form__input" id="email" type="email" name="email" placeholder="Введите e-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
                                       </p>
                                       </fieldset>
                                       <fieldset class="contact-form__fieldset">
@@ -528,10 +531,10 @@
                         </div>
                           <form class="modal__form">
                          <label class="modal__text">Имя
-                        <input class="modal__input" type="text" name="name" placeholder="Введите имя" required>
+                        <input class="modal__input" type="text" name="name" placeholder="Введите имя"  pattern="[A-Za-zА-Яа-яЁё\s\-]+" required>
                         </label>
                         <label class="modal__text">Email
-                       <input class="modal__input" type="email" name="email" placeholder="Введите e-mail" required>
+                       <input class="modal__input" type="email" name="email" placeholder="Введите e-mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
                        </label>
                        <fieldset class="modal__options">
                        <legend class="modal__text">Статус билета</legend>

@@ -20,6 +20,12 @@ function toggleHeaderState() {
 window.addEventListener('scroll', toggleHeaderState);
 toggleHeaderState(); 
 
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
 
 
 const list = document.querySelector('.language__list');
@@ -74,22 +80,6 @@ if (activeSection && activeSection.classList.contains('hero')) {
 });
 
 
-
-
-
-
-
-
-const icons = document.querySelectorAll('.icon__social');
-
-icons.forEach(icon => {
-  icon.addEventListener('click', () => {
-    icon.classList.toggle('icon__social--gold');
-  });
-});
-
-
-
 const btnTables = document.querySelectorAll('.btn--table,.btn');
 const modalForm = document.querySelector('.modal--form');
 const radios = document.querySelectorAll('.modal__radio');
@@ -128,22 +118,53 @@ contactBtn.addEventListener('click',(event)=>{
 closes.forEach(close => {
   close.addEventListener('click', () => {
    close.closest('.modal').classList.add('hidden');
+   const modal = close.closest('.modal');
+   if(modal.classList.contains('modal--thanks')){
+    thanksModal.classList.add('hidden');
+    modalForm.classList.add('hidden');
+   }
 
   });
 });
 
-modalButtons.forEach(close=>{
-  close.addEventListener('click',()=>{
-    thanksModal.classList.add('hidden');
-    modalQuestion.classList.add('hidden');
-  })
-})
+modalButtons.forEach((close) => {
+  close.addEventListener('click', () => {
+    const modalB = close.closest('.modal');
+    if (modalB.classList.contains('modal--thanks')) {
+      thanksModal.classList.add('hidden');
+      modalForm.classList.add('hidden');
+    } else if (modalB.classList.contains('modal--question')) {
+      modalQuestion.classList.add('hidden');
+    }
+  });
+});
+
+
+
+
 
 const form = document.querySelector('.modal--form form');
 const nameInput = form.querySelector('[name="name"]');
 const emailInput = form.querySelector('[name="email"]');
 const radioButtons = form.querySelectorAll('[name="ticket"]');
+const radioGroup = form.querySelector('.modal__options');
+
 checkFormValidity = function() {
+      if(nameInput.value.trim()===""){
+     nameInput.classList.add('invalid');
+  }else{
+      nameInput.classList.remove('invalid');
+  }
+  if(!emailInput.validity.valid){
+    emailInput.classList.add('invalid');
+  }else{
+     emailInput.classList.remove('invalid');
+  }
+if (!Array.from(radioButtons).some(r => r.checked)) {
+  radioGroup.classList.add('invalid');
+} else {
+  radioGroup.classList.remove('invalid');
+}
 if (nameInput.value.trim() &&
  emailInput.validity.valid &&
   Array.from(radioButtons).some(r => r.checked)) {
@@ -163,6 +184,22 @@ const emailInputQuestion = formQuestion.querySelector('[name="email"]');
 const questionButton = formQuestion.querySelector('.contact-form__btn')
 const textArea = formQuestion.querySelector('[name="message"]')
 const checkQuestionValidity = function() {
+    if(nameInputQuestion.value.trim()===""){
+     nameInputQuestion.classList.add('invalid');
+  }else{
+      nameInputQuestion.classList.remove('invalid');
+  }
+  if (emailInputQuestion.value.trim() !== "" && !emailInputQuestion.validity.valid) {
+  emailInputQuestion.classList.add('invalid');
+} else {
+  emailInputQuestion.classList.remove('invalid');
+}
+if (textArea.value.trim() === "") {
+  textArea.classList.add('invalid');
+} else {
+  textArea.classList.remove('invalid');
+}
+
 if (nameInputQuestion.value.trim() &&
  emailInputQuestion.validity.valid &&
 textArea.value.trim()) {
@@ -174,4 +211,4 @@ textArea.value.trim()) {
 nameInputQuestion.addEventListener('input', checkQuestionValidity);
 emailInputQuestion.addEventListener('input', checkQuestionValidity);
 textArea.addEventListener('input', checkQuestionValidity);
-checkQuestionValidity();
+
