@@ -80,6 +80,24 @@ if (activeSection && activeSection.classList.contains('hero')) {
 });
 
 
+window.addEventListener('scroll', () => {
+  navLinks.forEach(link => link.classList.remove('active'));
+
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    if (
+      window.scrollY >= top - 100 &&
+      window.scrollY < top + height - 100
+    ) {
+      const activeLink = document.querySelector(`.nav__link[href="#${section.id}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+  });
+});
+
+
+
 const btnTables = document.querySelectorAll('.btn--table,.btn');
 const modalForm = document.querySelector('.modal--form');
 const radios = document.querySelectorAll('.modal__radio');
