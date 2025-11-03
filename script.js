@@ -64,13 +64,6 @@ ticking = false;
 }
 
 
-
-
-
-
-
-
-
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
     navLinks.forEach(l => l.classList.remove('active'));
@@ -120,12 +113,16 @@ document.addEventListener('keydown', (e)=>{
 });
 
 
-let lastFocusedElement = null; // переменная в верхнем уровне
+let lastFocusedElement = null; 
+const btnTables = document.querySelectorAll('.btn--table, .btn');
+const modalForm = document.querySelector('.modal--form');
+const radios = document.querySelectorAll('.modal__radio');
+const closes = document.querySelectorAll('.modal__close');
 
 for (const btnTable of btnTables) {
   btnTable.addEventListener('click', (event) => {
     event.preventDefault();
-    lastFocusedElement = document.activeElement; // сохраняем кнопку
+    lastFocusedElement = document.activeElement; 
     modalForm.classList.remove('hidden');
     modalForm.setAttribute('aria-hidden', 'false');
 
