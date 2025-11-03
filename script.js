@@ -120,22 +120,33 @@ document.addEventListener('keydown', (e)=>{
 });
 
 
-const btnTables = document.querySelectorAll('.btn--table,.btn');
-const modalForm = document.querySelector('.modal--form');
-const radios = document.querySelectorAll('.modal__radio');
-const closes = document.querySelectorAll('.modal__close');
+let lastFocusedElement = null; // переменная в верхнем уровне
+
 for (const btnTable of btnTables) {
   btnTable.addEventListener('click', (event) => {
     event.preventDefault();
+    lastFocusedElement = document.activeElement; // сохраняем кнопку
     modalForm.classList.remove('hidden');
+    modalForm.setAttribute('aria-hidden', 'false');
 
-    const plan = event.currentTarget.dataset.plan; 
+    const focusable = modalForm.querySelector('input,button,select,textarea,[tabindex]');
+    if (focusable) focusable.focus();
 
+    const plan = event.currentTarget.dataset.plan;
     for (const radio of radios) {
       radio.checked = radio.value === plan;
     }
   });
 }
+
+closes.forEach(close => {
+  close.addEventListener('click', () => {
+    modalForm.classList.add('hidden');
+    modalForm.setAttribute('aria-hidden', 'true');
+    if (lastFocusedElement) lastFocusedElement.focus();
+  });
+});
+
 
 
 const btnSubmit = document.querySelector('.btn-submit');
@@ -144,6 +155,7 @@ const modalButtons = document.querySelectorAll('.modal__button');
 btnSubmit.addEventListener('click', (event)=>{
   event.preventDefault();
   thanksModal.classList.remove('hidden');
+  thanksModal.setAttribute('aria-hidden','false');
 })
  
 
@@ -152,6 +164,7 @@ const contactBtn = document.querySelector('.contact-form__btn');
 contactBtn.addEventListener('click',(event)=>{
   event.preventDefault();
   modalQuestion.classList.remove('hidden');
+  modalQuestion.setAttribute('aria-hidden','false');
 })
 
 closes.forEach(close => {
@@ -160,7 +173,9 @@ closes.forEach(close => {
    const modal = close.closest('.modal');
    if(modal.classList.contains('modal--thanks')){
     thanksModal.classList.add('hidden');
+    thanksModal.setAttribute('aria-hidden', 'true');
     modalForm.classList.add('hidden');
+    modalForm.setAttribute('aria-hidden', 'true');
    }
 
   });
@@ -171,9 +186,12 @@ modalButtons.forEach((close) => {
     const modalB = close.closest('.modal');
     if (modalB.classList.contains('modal--thanks')) {
       thanksModal.classList.add('hidden');
+      thanksModal.setAttribute('aria-hidden', 'true');
       modalForm.classList.add('hidden');
+      modalForm.setAttribute('aria-hidden', 'true');
     } else if (modalB.classList.contains('modal--question')) {
       modalQuestion.classList.add('hidden');
+      modalQuestion.setAttribute('aria-hidden', 'true');
     }
   });
 });
