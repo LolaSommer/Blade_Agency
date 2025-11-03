@@ -167,7 +167,9 @@ contactBtn.addEventListener('click',(event)=>{
   modalQuestion.setAttribute('aria-hidden','false');
 })
 
-closes.forEach(close => {
+closes.forEach((close) => {
+  const modal = close.closest('.modal');
+
   close.addEventListener('click', () => {
    close.closest('.modal').classList.add('hidden');
    const modal = close.closest('.modal');
@@ -198,74 +200,87 @@ modalButtons.forEach((close) => {
 
 
 
-
-
 const form = document.querySelector('.modal--form form');
 const nameInput = form.querySelector('[name="name"]');
 const emailInput = form.querySelector('[name="email"]');
 const radioButtons = form.querySelectorAll('[name="ticket"]');
 const radioGroup = form.querySelector('.modal__options');
 
-const checkFormValidity = () => {
-      if(nameInput.value.trim()===""){
-     nameInput.classList.add('invalid');
-  }else{
-      nameInput.classList.remove('invalid');
+function checkFormValidity() {
+  if (nameInput.value.trim() === '') {
+    nameInput.classList.add('invalid');
+  } else {
+    nameInput.classList.remove('invalid');
   }
-  if(!emailInput.validity.valid){
+
+  if (!emailInput.validity.valid) {
     emailInput.classList.add('invalid');
-  }else{
-     emailInput.classList.remove('invalid');
+  } else {
+    emailInput.classList.remove('invalid');
   }
-if (!Array.from(radioButtons).some(r => r.checked)) {
-  radioGroup.classList.add('invalid');
-} else {
-  radioGroup.classList.remove('invalid');
+
+  if (!Array.from(radioButtons).some((radio) => radio.checked)) {
+    radioGroup.classList.add('invalid');
+  } else {
+    radioGroup.classList.remove('invalid');
+  }
+
+  if (
+    nameInput.value.trim() &&
+    emailInput.validity.valid &&
+    Array.from(radioButtons).some((radio) => radio.checked)
+  ) {
+    if (btnSubmit) {
+      btnSubmit.disabled = false;
+    }
+  } else if (btnSubmit) {
+    btnSubmit.disabled = true;
+  }
 }
-if (nameInput.value.trim() &&
- emailInput.validity.valid &&
-  Array.from(radioButtons).some(r => r.checked)) {
-  btnSubmit.disabled = false;
-} else {
-  btnSubmit.disabled = true;
-}
-}
+
 nameInput.addEventListener('input', checkFormValidity);
 emailInput.addEventListener('input', checkFormValidity);
-radioButtons.forEach(r => r.addEventListener('change', checkFormValidity));
+radioButtons.forEach((radio) => radio.addEventListener('change', checkFormValidity));
 checkFormValidity();
 
 const formQuestion = document.querySelector('.contact-form');
 const nameInputQuestion = formQuestion.querySelector('[name="name"]');
 const emailInputQuestion = formQuestion.querySelector('[name="email"]');
-const questionButton = formQuestion.querySelector('.contact-form__btn')
-const textArea = formQuestion.querySelector('[name="message"]')
-const checkQuestionValidity = function() {
-    if(nameInputQuestion.value.trim()===""){
-     nameInputQuestion.classList.add('invalid');
-  }else{
-      nameInputQuestion.classList.remove('invalid');
+const questionButton = formQuestion.querySelector('.contact-form__btn');
+const textArea = formQuestion.querySelector('[name="message"]');
+
+function checkQuestionValidity() {
+  if (nameInputQuestion.value.trim() === '') {
+    nameInputQuestion.classList.add('invalid');
+  } else {
+    nameInputQuestion.classList.remove('invalid');
   }
-  if (emailInputQuestion.value.trim() !== "" && !emailInputQuestion.validity.valid) {
-  emailInputQuestion.classList.add('invalid');
-} else {
-  emailInputQuestion.classList.remove('invalid');
-}
-if (textArea.value.trim() === "") {
-  textArea.classList.add('invalid');
-} else {
-  textArea.classList.remove('invalid');
+
+  if (emailInputQuestion.value.trim() !== '' && !emailInputQuestion.validity.valid) {
+    emailInputQuestion.classList.add('invalid');
+  } else {
+    emailInputQuestion.classList.remove('invalid');
+  }
+
+  if (textArea.value.trim() === '') {
+    textArea.classList.add('invalid');
+  } else {
+    textArea.classList.remove('invalid');
+  }
+
+  if (
+    nameInputQuestion.value.trim() &&
+    emailInputQuestion.validity.valid &&
+    textArea.value.trim()
+  ) {
+    questionButton.disabled = false;
+  } else {
+    questionButton.disabled = true;
+  }
 }
 
-if (nameInputQuestion.value.trim() &&
- emailInputQuestion.validity.valid &&
-textArea.value.trim()) {
-  questionButton.disabled = false;
-} else {
-  questionButton.disabled = true;
-}
-}
 nameInputQuestion.addEventListener('input', checkQuestionValidity);
 emailInputQuestion.addEventListener('input', checkQuestionValidity);
 textArea.addEventListener('input', checkQuestionValidity);
+checkQuestionValidity();
 
