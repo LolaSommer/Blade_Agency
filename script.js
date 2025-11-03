@@ -124,61 +124,207 @@ const btnTables = document.querySelectorAll('.btn--table,.btn');
 const modalForm = document.querySelector('.modal--form');
 const radios = document.querySelectorAll('.modal__radio');
 const closes = document.querySelectorAll('.modal__close');
+const modals = document.querySelectorAll('.modal');
+const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+let activeModal = null;
+let lastTrigger = null;
+
+const getFocusableElements = (modal) => {
+  if (!modal) {
+    return [];
+  }
+
+  return Array.from(modal.querySelectorAll(focusableSelectors)).filter(
+    (element) => !element.hasAttribute('disabled') && element.getAttribute('aria-hidden') !== 'true'
+  );
+};
+
+const focusFirstElement = (modal) => {
+  const focusable = getFocusableElements(modal);
+
+  if (focusable.length > 0) {
+    focusable[0].focus();
+    return;
+  }
+
+  const modalWindow = modal.querySelector('.modal__window');
+
+  if (modalWindow) {
+    modalWindow.focus();
+  }
+};
+
+const openModal = (modal, trigger = document.activeElement) => {
+  if (!modal) {
+    return;
+  }
+
+  lastTrigger = trigger || lastTrigger;
+  activeModal = modal;
+  modal.classList.remove('hidden');
+  modal.setAttribute('aria-hidden', 'false');
+  focusFirstElement(modal);
+};
+
+const closeModal = (modal, { restoreFocus = true } = {}) => {
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.add('hidden');
+  modal.setAttribute('aria-hidden', 'true');
+
+  if (modal === activeModal) {
+    activeModal = null;
+
+    if (restoreFocus && lastTrigger) {
+      lastTrigger.focus();
+      lastTrigger = null;
+    }
+  }
+};
+
+document.addEventListener('keydown', (event) => {
+  if (!activeModal) {
+    return;
+  }
+
+  if (event.key === 'Escape') {
+    closeModal(activeModal);
+    return;
+  }
+
+  if (event.key !== 'Tab') {
+    return;
+  }
+
+  const focusable = getFocusableElements(activeModal);
+
+  if (focusable.length === 0) {
+    event.preventDefault();
+    return;
+  }
+
+  const firstElement = focusable[0];
+  const lastElement = focusable[focusable.length - 1];
+  const currentFocused = document.activeElement;
+
+  if (event.shiftKey) {
+    if (currentFocused === firstElement) {
+      event.preventDefault();
+      lastElement.focus();
+    }
+    return;
+  }
+
+  if (currentFocused === lastElement) {
+    event.preventDefault();
+    firstElement.focus();
+  }
+});
+
+modals.forEach((modal) => {
+  const overlay = modal.querySelector('.modal__overlay');
+
+  if (overlay) {
+    overlay.addEventListener('click', () => closeModal(modal));
+  }
+});
+
 for (const btnTable of btnTables) {
   btnTable.addEventListener('click', (event) => {
     event.preventDefault();
-    modalForm.classList.remove('hidden');
+    openModal(modalForm, event.currentTarget);
 
-    const plan = event.currentTarget.dataset.plan; 
+    const plan = event.currentTarget.dataset.plan;
 
-    for (const radio of radios) {
-      radio.checked = radio.value === plan;
+    if (plan) {
+      let hasMatch = false;
+
+      radios.forEach((radio) => {
+        const isMatch = radio.value === plan;
+        radio.checked = isMatch;
+
+        if (isMatch) {
+          hasMatch = true;
+        }
+      });
+
+      if (!hasMatch) {
+        radios.forEach((radio) => {
+          radio.checked = false;
+        });
+      }
+    }
+
+    if (typeof checkFormValidity === 'function') {
+      checkFormValidity();
     }
   });
 }
 
-
 const btnSubmit = document.querySelector('.btn-submit');
 const thanksModal = document.querySelector('.modal--thanks');
 const modalButtons = document.querySelectorAll('.modal__button');
-btnSubmit.addEventListener('click', (event)=>{
-  event.preventDefault();
-  thanksModal.classList.remove('hidden');
-})
- 
+
+if (btnSubmit) {
+  btnSubmit.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if (btnSubmit.disabled) {
+      return;
+    }
+
+    closeModal(modalForm, { restoreFocus: false });
+    openModal(thanksModal, lastTrigger);
+  });
+}
 
 const modalQuestion = document.querySelector('.modal--question');
 const contactBtn = document.querySelector('.contact-form__btn');
-contactBtn.addEventListener('click',(event)=>{
-  event.preventDefault();
-  modalQuestion.classList.remove('hidden');
-})
 
-closes.forEach(close => {
-  close.addEventListener('click', () => {
-   close.closest('.modal').classList.add('hidden');
-   const modal = close.closest('.modal');
-   if(modal.classList.contains('modal--thanks')){
-    thanksModal.classList.add('hidden');
-    modalForm.classList.add('hidden');
-   }
-
+if (contactBtn) {
+  contactBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    openModal(modalQuestion, contactBtn);
   });
-});
+}
 
-modalButtons.forEach((close) => {
+closes.forEach((close) => {
+  const modal = close.closest('.modal');
+
   close.addEventListener('click', () => {
-    const modalB = close.closest('.modal');
-    if (modalB.classList.contains('modal--thanks')) {
-      thanksModal.classList.add('hidden');
-      modalForm.classList.add('hidden');
-    } else if (modalB.classList.contains('modal--question')) {
-      modalQuestion.classList.add('hidden');
+    if (!modal) {
+      return;
+    }
+
+    if (modal === modalForm) {
+      closeModal(modalForm);
+      return;
+    }
+
+    if (modal === thanksModal) {
+      closeModal(thanksModal);
+      return;
+    }
+
+    if (modal === modalQuestion) {
+      closeModal(modalQuestion);
     }
   });
 });
 
+modalButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal');
 
+    if (!modal) {
+      return;
+    }
+
+    closeModal(modal);
+  });
+});
 
 
 
@@ -188,66 +334,81 @@ const emailInput = form.querySelector('[name="email"]');
 const radioButtons = form.querySelectorAll('[name="ticket"]');
 const radioGroup = form.querySelector('.modal__options');
 
-const checkFormValidity = () => {
-      if(nameInput.value.trim()===""){
-     nameInput.classList.add('invalid');
-  }else{
-      nameInput.classList.remove('invalid');
+function checkFormValidity() {
+  if (nameInput.value.trim() === '') {
+    nameInput.classList.add('invalid');
+  } else {
+    nameInput.classList.remove('invalid');
   }
-  if(!emailInput.validity.valid){
+
+  if (!emailInput.validity.valid) {
     emailInput.classList.add('invalid');
-  }else{
-     emailInput.classList.remove('invalid');
+  } else {
+    emailInput.classList.remove('invalid');
   }
-if (!Array.from(radioButtons).some(r => r.checked)) {
-  radioGroup.classList.add('invalid');
-} else {
-  radioGroup.classList.remove('invalid');
+
+  if (!Array.from(radioButtons).some((radio) => radio.checked)) {
+    radioGroup.classList.add('invalid');
+  } else {
+    radioGroup.classList.remove('invalid');
+  }
+
+  if (
+    nameInput.value.trim() &&
+    emailInput.validity.valid &&
+    Array.from(radioButtons).some((radio) => radio.checked)
+  ) {
+    if (btnSubmit) {
+      btnSubmit.disabled = false;
+    }
+  } else if (btnSubmit) {
+    btnSubmit.disabled = true;
+  }
 }
-if (nameInput.value.trim() &&
- emailInput.validity.valid &&
-  Array.from(radioButtons).some(r => r.checked)) {
-  btnSubmit.disabled = false;
-} else {
-  btnSubmit.disabled = true;
-}
-}
+
 nameInput.addEventListener('input', checkFormValidity);
 emailInput.addEventListener('input', checkFormValidity);
-radioButtons.forEach(r => r.addEventListener('change', checkFormValidity));
+radioButtons.forEach((radio) => radio.addEventListener('change', checkFormValidity));
 checkFormValidity();
 
 const formQuestion = document.querySelector('.contact-form');
 const nameInputQuestion = formQuestion.querySelector('[name="name"]');
 const emailInputQuestion = formQuestion.querySelector('[name="email"]');
-const questionButton = formQuestion.querySelector('.contact-form__btn')
-const textArea = formQuestion.querySelector('[name="message"]')
-const checkQuestionValidity = function() {
-    if(nameInputQuestion.value.trim()===""){
-     nameInputQuestion.classList.add('invalid');
-  }else{
-      nameInputQuestion.classList.remove('invalid');
+const questionButton = formQuestion.querySelector('.contact-form__btn');
+const textArea = formQuestion.querySelector('[name="message"]');
+
+function checkQuestionValidity() {
+  if (nameInputQuestion.value.trim() === '') {
+    nameInputQuestion.classList.add('invalid');
+  } else {
+    nameInputQuestion.classList.remove('invalid');
   }
-  if (emailInputQuestion.value.trim() !== "" && !emailInputQuestion.validity.valid) {
-  emailInputQuestion.classList.add('invalid');
-} else {
-  emailInputQuestion.classList.remove('invalid');
-}
-if (textArea.value.trim() === "") {
-  textArea.classList.add('invalid');
-} else {
-  textArea.classList.remove('invalid');
+
+  if (emailInputQuestion.value.trim() !== '' && !emailInputQuestion.validity.valid) {
+    emailInputQuestion.classList.add('invalid');
+  } else {
+    emailInputQuestion.classList.remove('invalid');
+  }
+
+  if (textArea.value.trim() === '') {
+    textArea.classList.add('invalid');
+  } else {
+    textArea.classList.remove('invalid');
+  }
+
+  if (
+    nameInputQuestion.value.trim() &&
+    emailInputQuestion.validity.valid &&
+    textArea.value.trim()
+  ) {
+    questionButton.disabled = false;
+  } else {
+    questionButton.disabled = true;
+  }
 }
 
-if (nameInputQuestion.value.trim() &&
- emailInputQuestion.validity.valid &&
-textArea.value.trim()) {
-  questionButton.disabled = false;
-} else {
-  questionButton.disabled = true;
-}
-}
 nameInputQuestion.addEventListener('input', checkQuestionValidity);
 emailInputQuestion.addEventListener('input', checkQuestionValidity);
 textArea.addEventListener('input', checkQuestionValidity);
+checkQuestionValidity();
 

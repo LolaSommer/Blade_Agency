@@ -428,7 +428,7 @@
                                     <p class="card__info">-Пакет форума</p>
                                     <p class="card__info">-Церемония открытия</p>
                                     <p class="card__info">-Вход на показ</p>
-                                    <button class="btn--table" type="button">Купить</button>
+                                    <button class="btn--table" type="button" data-plan="Зритель">Купить</button>
                                 </div>
                                 <div class="ticket-card">
                                     <h3 class="card__header">Тариф "Оптимум"</h3>
@@ -437,7 +437,7 @@
                                     <p class="card__info">-Вход на показ</p>
                                     <p class="card__info">-Возможность голосовать</p>
                                     <p class="card__info">-Доступ за кулисы</p>
-                                    <button class="btn--table" type="button">Купить</button>
+                                    <button class="btn--table" type="button" data-plan="Оптимум">Купить</button>
                                 </div>
                                  <div class="ticket-card">
                                       <h3 class="card__header">Тариф "VIP"</h3>
@@ -447,7 +447,7 @@
                                     <p class="card__info">-Возможность голосовать</p>
                                     <p class="card__info">-Доступ за кулисы</p>
                                     <p class="card__info">-Эксклюзив от кутюрье</p>
-                                    <button class="btn--table" type="button">Купить</button>
+                                    <button class="btn--table" type="button" data-plan="VIP">Купить</button>
                                  </div>
                                 </div>
                             </div>
@@ -522,9 +522,9 @@
                   
                  <div class="modal modal--form hidden"  aria-hidden="true">
                     <div class="modal__overlay"></div>
-                    <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+                    <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="modal-form-title" tabindex="-1">
                         <div class="modal__header">
-                        <h2 class="modal__title" id="modal-title">Чтобы приобрести билет, заполните форму ниже. Мы свяжемся с вами по вопросу оплаты.</h2>
+                        <h2 class="modal__title" id="modal-form-title">Чтобы приобрести билет, заполните форму ниже. Мы свяжемся с вами по вопросу оплаты.</h2>
                      <button class="modal__close" aria-label="Закрыть">
                         <svg class="modal__icon" fill="currentColor" ><use href="img/sprite.svg#icon-close"></use></svg>
                         </button>
@@ -555,31 +555,31 @@
                        </form>
                     </div>
                     </div>
-                    <div class="modal modal--thanks hidden">
+                    <div class="modal modal--thanks hidden" aria-hidden="true">
                     <div class="modal__overlay"></div>
-                
-                   <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="modal-title" >
+
+                   <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="modal-thanks-title" tabindex="-1" >
                     <div class="modal__line">
                     <svg class="modal__check"><use href="img/sprite.svg#bigIcon-radio"></use></svg>
                    <button class="modal__close" aria-label="Закрыть">
                    <svg class="modal__icon"><use href="img/sprite.svg#icon-close"></use></svg>
                   </button>
                   </div>
-                  <h2 class="modal__title">Спасибо за интерес к Blade Fashion Week 2019! Мы уже готовим ваше персональное приглашение.Скоро сообщим о всех деталях.</h2>
+                  <h2 class="modal__title" id="modal-thanks-title">Спасибо за интерес к Blade Fashion Week 2019! Мы уже готовим ваше персональное приглашение. Скоро сообщим о всех деталях.</h2>
                   <button class="modal__button" type="button">Понятно</button>
                  </div>
                   </div>
 
-                     <div class="modal modal--question hidden">
+                     <div class="modal modal--question hidden" aria-hidden="true">
                     <div class="modal__overlay"></div>
-                    <div class="modal__window">
+                    <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="modal-question-title" tabindex="-1">
                     <div class="modal__line">
                     <svg class="modal__check"><use href="img/sprite.svg#bigIcon-radio"></use></svg>
                     <button class="modal__close" aria-label="Закрыть">
                     <svg class="modal__icon"><use href="img/sprite.svg#icon-close"></use></svg>
                     </button>
                     </div>
-                    <h2 class="modal__title">Спасибо за ваш вопрос! Ваша заявка в работе. Мы ответим в течение дня обязательно, будьте на связи! </h2>
+                    <h2 class="modal__title" id="modal-question-title">Спасибо за ваш вопрос! Ваша заявка в работе. Мы ответим в течение дня обязательно, будьте на связи! </h2>
                      <button class="modal__button" type="button">Понятно</button>
                      </div>
                     </div>
