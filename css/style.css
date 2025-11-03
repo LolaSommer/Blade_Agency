@@ -976,13 +976,13 @@ button {
   color: #F7BF2F;
   transform: translateY(-50%) scale(1.2); }
 
-.patricipians__arrow {
+.participants__arrow {
   top: 65%; }
-  .patricipians__arrow--right {
+  .participants__arrow--right {
     right: -10rem; }
-  .patricipians__arrow--left {
+  .participants__arrow--left {
     left: -8rem; }
-  .patricipians__arrow:hover {
+  .participants__arrow:hover {
     color: #F7BF2F;
     transform: translateY(-50%) scale(1.2);
     filter: brightness(150%) opacity(1); }

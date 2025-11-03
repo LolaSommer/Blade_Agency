@@ -102,20 +102,19 @@ const btnTables = document.querySelectorAll('.btn--table,.btn');
 const modalForm = document.querySelector('.modal--form');
 const radios = document.querySelectorAll('.modal__radio');
 const closes = document.querySelectorAll('.modal__close');
-for(const btnTable of btnTables){ 
-btnTable.addEventListener('click', (event) =>{
-   event.preventDefault();
-modalForm.classList.remove('hidden');
-const plan = event.target.dataset.plan;
-for(radio of radios){
-  if(radio.value===plan){
-    radio.checked=true;
-  }else {
-    radio.checked=false;
-  }
+for (const btnTable of btnTables) {
+  btnTable.addEventListener('click', (event) => {
+    event.preventDefault();
+    modalForm.classList.remove('hidden');
+
+    const plan = event.currentTarget.dataset.plan; 
+
+    for (const radio of radios) {
+      radio.checked = radio.value === plan;
+    }
+  });
 }
-})
-}
+
 
 const btnSubmit = document.querySelector('.btn-submit');
 const thanksModal = document.querySelector('.modal--thanks');
@@ -167,7 +166,7 @@ const emailInput = form.querySelector('[name="email"]');
 const radioButtons = form.querySelectorAll('[name="ticket"]');
 const radioGroup = form.querySelector('.modal__options');
 
-checkFormValidity = function() {
+const checkFormValidity = () => {
       if(nameInput.value.trim()===""){
      nameInput.classList.add('invalid');
   }else{
