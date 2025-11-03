@@ -3,22 +3,73 @@ const hero = document.querySelector('.hero');
 const navLinks = document.querySelectorAll('.nav__link');
 const media = document.querySelector('.header__media');
 const lang = document.querySelector('.language__current');
+const gutter = document.querySelector('.gutter');
+const gutterCurrent = document.querySelector('.gutter__current');
+const sections = document.querySelectorAll('section');
 
-function toggleHeaderState() {
-  if (window.scrollY <= hero.offsetHeight) {
-    header.classList.remove('header--white');
-    navLinks.forEach(link => link.classList.remove('nav__link--dark'));
-    media.classList.add('header__media--hidden');
-    lang.classList.remove('language__current--dark');
-  } else {
-    header.classList.add('header--white');
-    navLinks.forEach(link => link.classList.add('nav__link--dark'));
-    media.classList.remove('header__media--hidden');
-    lang.classList.add('language__current--dark');
+let ticking = false;
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(updateOnScroll);
+    ticking = true;
   }
+});
+
+function updateOnScroll() {
+  const scrollY = window.scrollY + window.innerHeight / 2; 
+  let count = 1;
+  let activeSection = null;
+
+
+  sections.forEach((section, index) => {
+    const top = section.offsetTop;
+    const bottom = top + section.offsetHeight;
+    if (scrollY >= top && scrollY < bottom) {
+      count = index + 1;
+      activeSection = section;
+    }
+  });
+
+ 
+  gutterCurrent.textContent = count.toString().padStart(2, '0');
+
+navLinks.forEach(link => link.classList.remove('active'));
+
+if (activeSection) {
+  const activeLink = document.querySelector(`.nav__link[href="#${activeSection.id}"]`);
+  if (activeLink) activeLink.classList.add('active');
 }
-window.addEventListener('scroll', toggleHeaderState);
-toggleHeaderState(); 
+
+if (activeSection && activeSection.classList.contains('hero')) {
+
+  header.classList.remove('header--white');
+  gutter.classList.remove('gutter--dark');
+  
+ 
+  navLinks.forEach(link => link.classList.remove('nav__link--dark'));
+  media.classList.add('header__media--hidden');
+  lang.classList.remove('language__current--dark');
+} else {
+
+  header.classList.add('header--white');
+  gutter.classList.add('gutter--dark');
+
+  navLinks.forEach(link => link.classList.add('nav__link--dark'));
+  media.classList.remove('header__media--hidden');
+  lang.classList.add('language__current--dark');
+}
+
+ticking = false;
+}
+
+
+
+
+
+
+
+
 
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
@@ -53,49 +104,20 @@ list.addEventListener('click', (event)=>{
   list.classList.remove('open');
 });
 
-
-const gutterCurrent = document.querySelector('.gutter__current');
-const sections = document.querySelectorAll('section'); 
-const gutter =document.querySelector('.gutter');
- let count = 1; 
- let activeSection = null;
- window.addEventListener('scroll', () => { 
-  sections.forEach((section, index) => { 
-    const top = section.offsetTop; 
-    const height = section.offsetHeight; 
-    const bottom = top + height;
-    const scrollPos = window.scrollY + window.innerHeight / 2; 
-    if (scrollPos >= top && scrollPos < bottom) { 
-      count = index + 1; 
-      activeSection = section;
-    };
-    
-    });
-gutterCurrent.textContent = count.toString().padStart(2, '0'); 
-if (activeSection && activeSection.classList.contains('hero')) {
-  gutter.classList.remove('gutter--dark');
-} else {
-  gutter.classList.add('gutter--dark');
+const closeList = () =>{
+  list.classList.remove('open');
+  lang.setAttribute('aria-expanded', 'false')
 }
+document.addEventListener('click',(e)=>{
+  if(!lang.contains(e.target) && !list.contains(e.target)){
+    closeList();
+  }
 });
-
-
-window.addEventListener('scroll', () => {
-  navLinks.forEach(link => link.classList.remove('active'));
-
-  sections.forEach(section => {
-    const top = section.offsetTop;
-    const height = section.offsetHeight;
-    if (
-      window.scrollY >= top - 100 &&
-      window.scrollY < top + height - 100
-    ) {
-      const activeLink = document.querySelector(`.nav__link[href="#${section.id}"]`);
-      if (activeLink) activeLink.classList.add('active');
-    }
-  });
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape'){
+    closeList();
+  }
 });
-
 
 
 const btnTables = document.querySelectorAll('.btn--table,.btn');
