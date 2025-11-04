@@ -563,7 +563,7 @@ align-items: start;
     }
     &__legend{
      font-size: $fs-text;
-    opacity:0.32;
+    color: rgba(#000, 0.6);
     text-transform: uppercase;
     }
     &__input{

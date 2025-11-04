@@ -30,6 +30,24 @@ function updateOnScroll() {
       activeSection = section;
     }
   });
+ 
+
+  const up = document.querySelector('.gutter__arrow--up');
+  const down = document.querySelector('.gutter__arrow--down');
+ if(activeSection){
+  currentIndex = Array.from(sections).indexOf(activeSection);
+ }
+ up.addEventListener('click', () => {
+  if(currentIndex > 0){
+sections[currentIndex-1].scrollIntoView({ behavior: "smooth" });
+  }
+ });
+ down.addEventListener('click',()=>{
+  if(currentIndex < sections.length - 1){
+sections[currentIndex+1].scrollIntoView({ behavior: "smooth" });
+  }
+ });
+
 
  
   gutterCurrent.textContent = count.toString().padStart(2, '0');
@@ -153,6 +171,8 @@ btnSubmit.addEventListener('click', (event)=>{
   event.preventDefault();
   thanksModal.classList.remove('hidden');
   thanksModal.setAttribute('aria-hidden','false');
+  modalForm.classList.add('hidden');
+  modalForm.setAttribute('aria-hidden', 'true');
 })
  
 
