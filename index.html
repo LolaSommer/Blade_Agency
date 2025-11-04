@@ -65,8 +65,8 @@
       <button class="gutter__arrow gutter__arrow--up" aria-label="Перейти к предыдущей секции"></button>
       <button class="gutter__arrow gutter__arrow--down" aria-label="Перейти к следующей секции"></button>
     </div>
-
-    <div class="gutter__count" aria-live="polite" aria-label="Номер текущей секции">
+    <p id="section-counter-label" class="visually-hidden">Номер текущей секции</p>
+    <div class="gutter__count" aria-live="polite" aria-labelledby="section-counter-label">
       <span class="gutter__current">01</span>
       <span class="gutter__slash">/</span>
       <span class="gutter__total">05</span>
@@ -169,7 +169,7 @@
                                         <img src="img/nuar.png" alt="Показ коллекции в стиле нуар — чёрно-белый контраст, строгие силуэты">
                                          <div class="card">
                                             <div class="card__people">
-                                            <img class="card__foto" src="img/david.png" alt="Фото:Келли Макдональд">
+                                            <img class="card__foto" src="img/david.png" alt="Фото:Дэвид Робинсон">
                                             <h4 class="card__name">Дэвид Робинсон</h4>
                                             <p class="card__country-label">Сша</p>
                                             </div>
@@ -348,7 +348,7 @@
                                 <table class="tariffs">
                                     <thead>
                                         <tr>
-                                        <th></th>
+                                        <th scope="col" aria-hidden="true">&nbsp;</th>
                                         <th class="tariffs__stars">Зритель 
                                             <span class="stars" aria-hidden="true">
                                         <svg class="star" focusable="false"><use href="img/sprite.svg#icon-star"></use></svg>
@@ -486,8 +486,7 @@
                                 </div> 
                             
                             <div class="contacts__cols">
-                                <h2>Остались вопросы?</h2>
-                                <h2>Спросите нас! Мы ответим!</h2>
+                                <h2 id="contact-form-title">Остались вопросы?Спросите нас! Мы ответим!</h2>
                             <div class="contacts__form">
                                 <form class="contact-form" aria-labelledby="contact-form-title" >
                                     <fieldset class="contact-form__fieldset">
@@ -570,13 +569,13 @@
                  </div>
                   </div>
 
-                     <div class="modal modal--question hidden" aria-modal="true" aria-labelledby="question-title">
+                     <div class="modal modal--question hidden">
                     <div class="modal__overlay"></div>
                     <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="modal-question-title" tabindex="-1">
                     <div class="modal__line">
-                    <svg class="modal__check"><use href="img/sprite.svg#bigIcon-radio"></use></svg>
+                    <svg class="modal__check" aria-hidden="true" focusable="false"><use href="img/sprite.svg#bigIcon-radio"></use></svg>
                     <button class="modal__close" aria-label="Закрыть">
-                    <svg class="modal__icon"><use href="img/sprite.svg#icon-close"></use></svg>
+                    <svg class="modal__icon" aria-hidden="true" focusable="false"><use href="img/sprite.svg#icon-close"></use></svg>
                     </button>
                     </div>
                     <h2 id="question-title" class="modal__title">Спасибо за ваш вопрос! Ваша заявка в работе. Мы ответим в течение дня обязательно, будьте на связи! </h2>
