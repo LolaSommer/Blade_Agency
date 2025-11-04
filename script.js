@@ -265,19 +265,17 @@ function checkQuestionValidity() {
     textArea.classList.remove('invalid');
   }
 
-  if (
+  questionButton.disabled = !(
     nameInputQuestion.value.trim() &&
     emailInputQuestion.validity.valid &&
     textArea.value.trim()
-  ) {
-    questionButton.disabled = false;
-  } else {
-    questionButton.disabled = true;
-  }
+  );
 }
 
-nameInputQuestion.addEventListener('input', checkQuestionValidity);
-emailInputQuestion.addEventListener('input', checkQuestionValidity);
-textArea.addEventListener('input', checkQuestionValidity);
-checkQuestionValidity();
+[nameInputQuestion, emailInputQuestion, textArea].forEach(field => {
+  field.addEventListener('input', checkQuestionValidity);
+  field.addEventListener('blur', checkQuestionValidity);
+});
+
+
 
