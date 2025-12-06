@@ -2,6 +2,8 @@
 
 A modern responsive landing page for a creative digital agency.
 Built with semantic HTML, SCSS architecture (BEM), and clean, accessible JavaScript logic.
+🔗 Live Demo
+https://lolasommer.github.io/Blade_Agency/
 
 🚀 Tech Stack
 
@@ -38,7 +40,7 @@ Accessibility: 94
 Best Practices: 100
 SEO: 91
 
-🔗 Live Demo
+
 
 👉 View on GitHub Pages
 
